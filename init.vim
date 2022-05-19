@@ -1,25 +1,25 @@
-call plug#begin('~/.vim/plugged')
-
-" Plugins
-Plug 'git@github.com:itchyny/lightline.vim.git'
-Plug 'git@github.com:christoomey/vim-tmux-navigator.git'
-Plug 'git@github.com:windwp/nvim-autopairs.git'
-Plug 'git@github.com:joshdick/onedark.vim.git'
-Plug 'git@github.com:nvim-treesitter/nvim-treesitter.git', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'git@github.com:KarimElghamry/vim-auto-comment.git'
-Plug 'git@github.com:p00f/nvim-ts-rainbow.git'
-Plug 'git@github.com:kyazdani42/nvim-tree.lua.git'
-
-" Autocompletion
-Plug 'git@github.com:neovim/nvim-lspconfig.git'
-Plug 'git@github.com:hrsh7th/nvim-cmp.git'
-Plug 'git@github.com:hrsh7th/cmp-nvim-lsp.git'
-Plug 'git@github.com:hrsh7th/cmp-path.git'
-Plug 'git@github.com:hrsh7th/cmp-buffer.git'
-Plug 'git@github.com:hrsh7th/cmp-cmdline.git'
-Plug 'git@github.com:hrsh7th/cmp-vsnip.git'
-Plug 'git@github.com:hrsh7th/vim-vsnip.git'
-Plug 'git@github.com:williamboman/nvim-lsp-installer.git'
+call plug#begin('/home/asdf/.local/share/nvim/plugged')
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'windwp/nvim-autopairs'
+Plug 'joshdick/onedark.vim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'CRAG666/code_runner.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'KarimElghamry/vim-auto-comment'
+Plug 'p00f/nvim-ts-rainbow'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -39,9 +39,7 @@ set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set splitbelow
 set hidden
 
-
 lua <<EOF
-
 local lsp_installer = require('nvim-lsp-installer')
 
 lsp_installer.on_server_ready(function(server)
@@ -56,92 +54,83 @@ local cmp = require'cmp'
 cmp.setup({
     snippet = {
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-    end,
-},
+            require'luasnip'.lsp_expand(args.body)
+        end,
+    },
+
 mapping = {
     ['<Tab>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
         select = true,
         },
-    },
+    ['<Down>'] = cmp.mapping.select_next_item(),
+    ['<Up>'] = cmp.mapping.select_prev_item(),
+},
+
 sources = {
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
+    { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
     { name = 'cmdline' },
 }
 })
 
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
-      colors = { '#33daff', '#fa9512', '#c172d9', '#fa6262', '#aae46f', '#5eff8e' },
-  },
-  indent = {
-      enable = true,
-  },
+require("nvim-treesitter.configs").setup {
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
+        colors = { '#fa9512', '#33daff', '#c172d9', '#fa6262', '#aae46f', '#5eff8e' },
+    },
 }
-require('nvim-autopairs').setup{}
 
-require'nvim-tree'.setup()
+require('nvim-autopairs').setup()
+require('nvim-tree').setup()
+require('indent_blankline').setup{}
+require('lualine').setup {
+    options = { theme = 'onedark' }
+}
 
+require('code_runner').setup {
+    startinsert = true,
+    term = {
+        size = 15,
+    },
+    filetype = {
+        python = "python -u",
+        javascript = "node",
+        cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
+        c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
+        go = "go run $fileName"
+    },
+}
 EOF
 
-
-if has ('nvim')
-    autocmd TermOpen term://* startinsert
-endif
-
-" Lightline color
-let g:lightline = { 'colorscheme': 'one' }
-
-" Human readable hex
-nnoremap <silent> <F2> :%!xxd<CR>
-
-" Revert to normal binary
-nnoremap <silent> <F3> :%!xxd -r<CR>
-
-" File explorer
-nnoremap <silent> <C-b> :NvimTreeToggle<CR>
-
-" Save
+" Format on save
 nnoremap <C-s> :lua vim.lsp.buf.formatting()<CR>:w<CR>
 inoremap <C-s> <Esc> :lua vim.lsp.buf.formatting()<CR>:w<CR>
 inoremap <C-s> <Esc> :lua vim.lsp.buf.formatting()<CR>:w<CR>
+" Format on save
 
-" Map F9 to run code depending on file type
-autocmd FileType bash nnoremap <silent> <C-M-n> :w<CR>:split \| terminal bash %<CR>
-autocmd FileType sh nnoremap <silent> <C-M-n> :w<CR>:split \| terminal bash %<CR>
-autocmd FileType python nnoremap <silent> <C-M-n> :w<CR>:split \| terminal python %<CR>
-autocmd FileType c nnoremap <silent> <C-M-n> :split \| terminal ./%<<CR>
-autocmd FileType cpp nnoremap <silent> <C-M-n> :split \| terminal ./%<<CR>
-autocmd FileType asm nnoremap <silent> <C-M-n> :split \| terminal ./%<<CR>
-autocmd FileType rust nnoremap <silent> <C-M-n> :split \| terminal cargo run<CR>
-autocmd FileType javascript nnoremap <silent> <C-M-n> :split \| terminal node %<CR>
 
-" Map F10 to run code with arguments depending on file type
-autocmd FileType bash nnoremap <silent> <F10> :w<CR>:split \| terminal bash % 
-autocmd FileType sh nnoremap <silent> <F10> :w<CR>:split \| terminal bash % 
-autocmd FileType python nnoremap <silent> <F10> :w<CR>:split \| terminal python % 
-autocmd FileType c nnoremap <silent> <F10> :split \| terminal ./%< 
-autocmd FileType cpp nnoremap <silent> <F10> :split \| terminal ./%< 
-autocmd FileType rust nnoremap <silent> <F10> :split \| terminal cargo run
+" Mappings
+nnoremap <silent> <C-b> :NvimTreeToggle<CR>
+nnoremap <C-M-n> :RunCode<CR>
+vnoremap <silent><F11> :AutoInLineComment<CR>
+nnoremap <silent><F11> :AutoInLineComment<CR>
+vnoremap <silent><F12> :AutoBlockComment<CR>
+nnoremap <silent><F12> :AutoBlockComment<CR>
+" Mappings
 
-" Map F5 to compile code
-autocmd FileType c nnoremap <silent> <F5> :w<CR>:!gcc % -o %<<CR>
-autocmd FileType cpp nnoremap <silent> <F5> :w<CR>:!g++ % -o %<<CR>
+
+" Assemble
 autocmd FileType asm nnoremap <silent> <F5> :w<CR>:!yasm -f elf64 % && ld %<.o -o %<<CR>
-autocmd FileType rust nnoremap <silent> <F5> :split \| terminal cargo build<CR>
+" Assemble
 
 colorscheme onedark
 
-" Transparent BG
 hi Normal guibg=NONE ctermbg=NONE
