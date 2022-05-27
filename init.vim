@@ -18,7 +18,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
@@ -40,12 +39,7 @@ set splitbelow
 set hidden
 
 lua <<EOF
-local lsp_installer = require('nvim-lsp-installer')
-
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    server:setup(opts)
-end)
+require'lspconfig'.pyright.setup{}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
