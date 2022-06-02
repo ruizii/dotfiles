@@ -1,4 +1,5 @@
 call plug#begin('/home/asdf/.local/share/nvim/plugged')
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
 Plug 'joshdick/onedark.vim'
@@ -40,6 +41,7 @@ set hidden
 
 lua <<EOF
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.gopls.setup{}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
