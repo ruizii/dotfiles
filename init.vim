@@ -103,7 +103,9 @@ require('code_runner').setup {
         javascript = "node",
         cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
         c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
-        go = "go run $fileName"
+        go = "go run $fileName",
+        sh = "bash $fileName",
+        asm = "nasm -f elf64 $fileName && ld $fileNameWithoutExt.o -o $fileNameWithoutExt && ./$fileNameWithoutExt"
     },
 }
 EOF
@@ -123,11 +125,6 @@ nnoremap <silent><F11> :AutoInLineComment<CR>
 vnoremap <silent><F12> :AutoBlockComment<CR>
 nnoremap <silent><F12> :AutoBlockComment<CR>
 " Mappings
-
-
-" Assemble
-autocmd FileType asm nnoremap <silent> <F5> :w<CR>:!yasm -f elf64 % && ld %<.o -o %<<CR>
-" Assemble
 
 colorscheme onedark
 
