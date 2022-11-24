@@ -1,4 +1,4 @@
-call plug#begin('/home/asdf/.local/share/nvim/plugged')
+call plug#begin('/home/kali/.local/share/nvim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
@@ -20,6 +20,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'ollykel/v-vim'
+Plug 'lukas-reineke/lsp-format.nvim'
 
 call plug#end()
 
@@ -40,13 +42,15 @@ set splitbelow
 set hidden
 
 lua <<EOF
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.clangd.setup{}
+require'lsp-format'.setup{}
+--require'lspconfig'.pyright.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.gopls.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.tsserver.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.clangd.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.vls.setup{ on_attach = require("lsp-format").on_attach }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities
 
 local cmp = require'cmp'
 cmp.setup({
@@ -105,21 +109,22 @@ require('code_runner').setup {
         c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
         go = "go run $fileName",
         sh = "bash $fileName",
-        asm = "nasm -f elf64 $fileName && ld $fileNameWithoutExt.o -o $fileNameWithoutExt && ./$fileNameWithoutExt"
+        asm = "nasm -f elf64 $fileName && ld $fileNameWithoutExt.o -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+        vlang = "v run $fileName"
     },
 }
 EOF
 
-" Format on save
-nnoremap <C-s> :lua vim.lsp.buf.formatting()<CR>:w<CR>
-inoremap <C-s> <Esc> :lua vim.lsp.buf.formatting()<CR>:w<CR>
-inoremap <C-s> <Esc> :lua vim.lsp.buf.formatting()<CR>:w<CR>
-" Format on save
+" Ctrl + s to save
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>
+" Ctrl + s to save
 
 
 " Mappings
 nnoremap <silent> <C-b> :NvimTreeToggle<CR>
-nnoremap <C-M-n> :RunCode<CR>
+nnoremap <F5> :RunCode<CR>
 vnoremap <silent><F11> :AutoInLineComment<CR>
 nnoremap <silent><F11> :AutoInLineComment<CR>
 vnoremap <silent><F12> :AutoBlockComment<CR>
