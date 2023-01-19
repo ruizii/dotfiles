@@ -1,4 +1,4 @@
-call plug#begin('/home/kali/.local/share/nvim/plugged')
+call plug#begin('/home/asdf/.local/share/nvim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
