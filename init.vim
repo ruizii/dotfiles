@@ -1,4 +1,4 @@
-call plug#begin('/home/asdf/.local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
@@ -43,7 +43,7 @@ set hidden
 
 lua <<EOF
 require'lsp-format'.setup{}
---require'lspconfig'.pyright.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.jedi_language_server.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.gopls.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.tsserver.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.clangd.setup{ on_attach = require("lsp-format").on_attach }
