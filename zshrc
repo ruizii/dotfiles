@@ -50,7 +50,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
-alias ls='exa'
+alias ls='exa -g'
 alias cat='bat -pp'
 
 eval "$(starship init zsh)"
