@@ -5,15 +5,15 @@ zstyle ':completion::complete:*' gain-privileges 1
 bindkey -e
 bindkey "^[[3~" delete-char
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green
 ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue
 ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green
 ZSH_HIGHLIGHT_STYLES[path]=bold
@@ -51,6 +51,9 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
 alias ls='exa -g'
-alias cat='bat -pp'
+alias cat='batcat -pp'
+alias python='python3'
+
+PATH="${PATH}:${HOME}/bin"
 
 eval "$(starship init zsh)"
