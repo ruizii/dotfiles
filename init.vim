@@ -73,7 +73,7 @@ sources = {
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'cmdline' },
+    --{ name = 'cmdline' },
 }
 })
 

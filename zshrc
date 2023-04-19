@@ -5,8 +5,8 @@ zstyle ':completion::complete:*' gain-privileges 1
 bindkey -e
 bindkey "^[[3~" delete-char
 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
@@ -51,7 +51,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
 alias ls='exa -g'
-alias cat='batcat -pp'
+alias cat='bat -pp'
 alias python='python3'
 
 PATH="${PATH}:${HOME}/bin"
