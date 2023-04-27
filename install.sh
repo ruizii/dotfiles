@@ -9,6 +9,7 @@ echo -e "\n\t${CYAN}${HOME}/.config/kitty/kitty.conf${ENDCOLOR}"
 echo -e "\t${CYAN}${HOME}/.config/nvim/init.vim${ENDCOLOR}"
 echo -e "\t${CYAN}${HOME}/.zshrc${ENDCOLOR}"
 echo -e "\t${CYAN}${HOME}/.tmux.conf"
+echo -e "\t${CYAN}/opt/tmux-logging/logging.tmux"
 
 mkdir -p ${HOME}/.config/kitty
 mkdir -p ${HOME}/.config/nvim
