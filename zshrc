@@ -114,4 +114,3 @@ alias python='python3'
 PATH="${PATH}:${HOME}/bin"
 
 eval "$(starship init zsh)"
-`test -z "$TMUX" && (tmux attach || tmux new-session)`
