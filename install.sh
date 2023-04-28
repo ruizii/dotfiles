@@ -11,10 +11,15 @@ echo -e "\t${CYAN}${HOME}/.zshrc${ENDCOLOR}"
 
 mkdir -p ${HOME}/.config/kitty
 mkdir -p ${HOME}/.config/nvim
+mkdir -p ${HOME}/.local/share/fonts
 
 rm ${HOME}/.zshrc
 rm ${HOME}/.config/kitty/kitty.conf
 rm ${HOME}/.config/nvim/init.vim
+
+curl -s https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip ${HOME}/.local/share/fonts/FiraCode.zip
+unzip ${HOME}/.local/share/fonts/FiraCode.zip
+rm ${HOME}/.local/share/fonts/FiraCode.zip
 
 ln -s $(pwd)/kitty.conf ${HOME}/.config/kitty/kitty.conf
 ln -s $(pwd)/init.vim ${HOME}/.config/nvim/init.vim
