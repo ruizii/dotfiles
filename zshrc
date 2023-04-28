@@ -51,8 +51,8 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
     ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh]; then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax/zsh-syntax-highlighting.zsh
+elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
     ZSH_HIGHLIGHT_STYLES[default]=none
     ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
@@ -101,15 +101,16 @@ fi
 
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh]; then
+elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
     echo "zsh-autosuggestions not installed"
 fi
 
 alias ls='exa -g'
-alias cat='bat -pp'
+alias cat='batcat -pp'
 alias python='python3'
+alias icat='kitty +kitten icat'
 
 PATH="${PATH}:${HOME}/bin"
 
