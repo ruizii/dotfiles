@@ -12,6 +12,10 @@ echo -e "\t${CYAN}${HOME}/.zshrc${ENDCOLOR}"
 mkdir -p ${HOME}/.config/kitty
 mkdir -p ${HOME}/.config/nvim
 
+rm ${HOME}/.zshrc
+rm ${HOME}/.config/kitty/kitty.conf
+rm ${HOME}/.config/nvim/init.vim
+
 ln -s $(pwd)/kitty.conf ${HOME}/.config/kitty/kitty.conf
 ln -s $(pwd)/init.vim ${HOME}/.config/nvim/init.vim
 ln -s $(pwd)/zshrc ${HOME}/.zshrc
