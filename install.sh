@@ -22,7 +22,7 @@ curl -s -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Fira
 unzip -qq -o ${HOME}/.local/share/fonts/FiraCode.zip -d ${HOME}/.local/share/fonts/
 rm ${HOME}/.local/share/fonts/FiraCode.zip
 rm ${HOME}/.local/share/fonts/*Windows*
-find ${HOME}/.local/share/fonts/ ! -name "*Mono*" -delete
+find ${HOME}/.local/share/fonts/ ! -name "*Mono*" -type f -delete
 
 ln -s $(pwd)/kitty.conf ${HOME}/.config/kitty/kitty.conf
 ln -s $(pwd)/init.vim ${HOME}/.config/nvim/init.vim
