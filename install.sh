@@ -7,6 +7,7 @@ ENDCOLOR='\033[0m'
 echo -e "\n${BLUE}Instalando dotfiles en:${ENDCOLOR}"
 echo -e "\n\t${CYAN}${HOME}/.config/kitty/kitty.conf${ENDCOLOR}"
 echo -e "\t${CYAN}${HOME}/.config/nvim/init.vim${ENDCOLOR}"
+echo -e "\t${CYAN}${HOME}/.local/share/fonts/${ENDCOLOR}"
 echo -e "\t${CYAN}${HOME}/.zshrc${ENDCOLOR}"
 
 mkdir -p ${HOME}/.config/kitty
