@@ -18,7 +18,7 @@ rm ${HOME}/.config/kitty/kitty.conf
 rm ${HOME}/.config/nvim/init.vim
 
 curl -s -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip -o ${HOME}/.local/share/fonts/FiraCode.zip
-unzip ${HOME}/.local/share/fonts/FiraCode.zip
+unzip ${HOME}/.local/share/fonts/FiraCode.zip -d ${HOME}/.local/share/fonts/
 rm ${HOME}/.local/share/fonts/FiraCode.zip
 
 ln -s $(pwd)/kitty.conf ${HOME}/.config/kitty/kitty.conf
