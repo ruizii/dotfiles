@@ -111,6 +111,7 @@ alias ls='exa -g'
 alias cat='batcat -pp'
 alias python='python3'
 alias icat='kitty +kitten icat'
+alias ip='ip --color=auto'
 
 PATH="${PATH}:${HOME}/bin"
 
