@@ -112,6 +112,7 @@ alias cat='batcat -pp'
 alias python='python3'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
+alias grep='grep --color=auto'
 
 PATH="${PATH}:${HOME}/bin"
 
