@@ -114,6 +114,6 @@ alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
 
-PATH="${PATH}:${HOME}/bin"
+PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin"
 
 eval "$(starship init zsh)"
