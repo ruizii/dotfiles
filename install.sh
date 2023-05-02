@@ -14,9 +14,9 @@ mkdir -p ${HOME}/.config/kitty
 mkdir -p ${HOME}/.config/nvim
 mkdir -p ${HOME}/.local/share/fonts
 
-rm ${HOME}/.zshrc
-rm ${HOME}/.config/kitty/kitty.conf
-rm ${HOME}/.config/nvim/init.vim
+rm -f ${HOME}/.zshrc
+rm -f ${HOME}/.config/kitty/kitty.conf
+rm -f ${HOME}/.config/nvim/init.vim
 
 curl -s -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip -o ${HOME}/.local/share/fonts/FiraCode.zip
 unzip -qq -o ${HOME}/.local/share/fonts/FiraCode.zip -d ${HOME}/.local/share/fonts/
@@ -27,3 +27,5 @@ find ${HOME}/.local/share/fonts/ ! -name "*Mono*" -type f -delete
 ln -s $(pwd)/kitty.conf ${HOME}/.config/kitty/kitty.conf
 ln -s $(pwd)/init.vim ${HOME}/.config/nvim/init.vim
 ln -s $(pwd)/zshrc ${HOME}/.zshrc
+
+curl -sS https://starship.rs/install.sh | sh
