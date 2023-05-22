@@ -1,5 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'iruzo/matrix-nvim
+Plug 'terrortylor/nvim-comment'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'windwp/nvim-autopairs'
 Plug 'joshdick/onedark.vim'
@@ -7,7 +9,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'CRAG666/code_runner.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'KarimElghamry/vim-auto-comment'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -17,10 +18,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'ollykel/v-vim'
 Plug 'lukas-reineke/lsp-format.nvim'
 
 call plug#end()
@@ -43,11 +42,10 @@ set hidden
 
 lua <<EOF
 require'lsp-format'.setup{}
-require'lspconfig'.jedi_language_server.setup{ on_attach = require("lsp-format").on_attach }
+require'lspconfig'.pyright.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.gopls.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.tsserver.setup{ on_attach = require("lsp-format").on_attach }
 require'lspconfig'.clangd.setup{ on_attach = require("lsp-format").on_attach }
-require'lspconfig'.vls.setup{ on_attach = require("lsp-format").on_attach }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities
@@ -73,7 +71,6 @@ sources = {
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    --{ name = 'cmdline' },
 }
 })
 
@@ -125,10 +122,8 @@ inoremap <C-s> <Esc>:w<CR>
 " Mappings
 nnoremap <silent> <C-b> :NvimTreeToggle<CR>
 nnoremap <F5> :RunCode<CR>
-vnoremap <silent><F11> :AutoInLineComment<CR>
-nnoremap <silent><F11> :AutoInLineComment<CR>
-vnoremap <silent><F12> :AutoBlockComment<CR>
-nnoremap <silent><F12> :AutoBlockComment<CR>
+nnoremap <C-_> :CommentToggle<cr>
+vnoremap <C-_> :CommentToggle<cr>
 " Mappings
 
 colorscheme onedark
