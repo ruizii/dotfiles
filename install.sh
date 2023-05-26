@@ -19,9 +19,7 @@ cleanup() {
   rm -f ~/.zshrc
 }
 
-
 mkdir -p ~/.config/kitty
-
 
 git clone https://github.com/linuxscoop/Relax-Plasma-Themes.git ~/Downloads/Relax-Plasma-Themes
 
