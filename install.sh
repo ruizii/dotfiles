@@ -2,22 +2,20 @@
 
 set -Eeuo pipefail
 
-trap cleanup SIGINT SIGTERM ERR EXIT
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
 CYAN='\033[0;36m'
 BLUE='\033[0;34m'
-RED='\033[0;31m'
 ENDCOLOR='\033[0m'
 
-cleanup() {
-  echo -e "\n${RED}Instalacion interrumpida. Eliminando archivos.\n"
-  trap - SIGINT SIGTERM ERR EXIT
-  rm -rf ~/Downloads/Relax-Plasma-Themes/
-  rm -rf ~/.config/kitty/
-  rm -rf ~/.config/Kvantum/
-  rm -f ~/.zshrc
-}
+echo -e "\n\t${BLUE}Installing dotfiles${ENDCOLOR}"
+echo -e "\n\t\t${CYAN}kitty.conf${ENDCOLOR}"
+echo -e "\t\t${CYAN}.zshrc${ENDCOLOR}"
+echo -e "\t\t${CYAN}Kvantum config${ENDCOLOR}"
+echo -e "\t\t${CYAN}GTK themes${ENDCOLOR}"
+echo -e "\t\t${CYAN}Plasma themes${ENDCOLOR}\n"
+
+rm -rf ~/.config/Kvantum/
 
 mkdir -p ~/.config/kitty
 
