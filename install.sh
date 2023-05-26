@@ -23,11 +23,11 @@ mkdir -p ~/.config/kitty
 
 git clone https://github.com/linuxscoop/Relax-Plasma-Themes.git ~/Downloads/Relax-Plasma-Themes
 
-mkdir -p ~/.local/share/color-schemes && cp -Rv ~/Downloads/Relax-Plasma-Themes/Relax\ Colorschemes/*.colors ~/.local/share/color-schemes/
-mkdir -p ~/.themes && cp -Rv ~/Downloads/Relax-Plasma-Themes/Relax\ GTK\ Themes/* ~/.themes/
-mkdir -p ~/.local/share/plasma/desktoptheme && cp -Rv ~/Downloads/Relax-Plasma-Themes/Relax\ Plasma\ Themes/ ~/.local/share/plasma/desktoptheme/
-mkdir -p ~/.local/share/aurorae/themes && cp -Rv ~/Downloads/Relax-Plasma-Themes/Relax\ Window\ Decotations/* ~/.local/share/aurorae/themes/
-mkdir -p ~/.config/Kvantum && cp -Rv ~/Downloads/Relax-Plasma-Themes/Relax\ Kvantum\ Themes/* ~/.config/Kvantum/
+mkdir -p ~/.local/share/color-schemes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Colorschemes/*.colors ~/.local/share/color-schemes/
+mkdir -p ~/.themes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ GTK\ Themes/* ~/.themes/
+mkdir -p ~/.local/share/plasma/desktoptheme && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Plasma\ Themes/ ~/.local/share/plasma/desktoptheme/
+mkdir -p ~/.local/share/aurorae/themes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Window\ Decotations/* ~/.local/share/aurorae/themes/
+mkdir -p ~/.config/Kvantum && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Kvantum\ Themes/* ~/.config/Kvantum/
 
 rm -rf ~/Downloads/Relax-Plasma-Themes/
 
