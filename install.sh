@@ -1,16 +1,14 @@
 #!/bin/bash
 
 set -Eeuo pipefail
-trap cleanup SIGINT SIGTERM ERR EXIT
 
+trap cleanup SIGINT SIGTERM ERR EXIT
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
 CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
 ENDCOLOR='\033[0m'
-
-mkdir -p ~/.config/kitty
 
 cleanup() {
   echo -e "\n${RED}Instalacion interrumpida. Eliminando archivos.\n"
@@ -20,6 +18,10 @@ cleanup() {
   rm -rf ~/.config/Kvantum/
   rm -f ~/.zshrc
 }
+
+
+mkdir -p ~/.config/kitty
+
 
 git clone https://github.com/linuxscoop/Relax-Plasma-Themes.git ~/Downloads/Relax-Plasma-Themes
 
