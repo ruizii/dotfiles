@@ -15,6 +15,8 @@ echo -e "\t\t${CYAN}Kvantum config${ENDCOLOR}"
 echo -e "\t\t${CYAN}GTK themes${ENDCOLOR}"
 echo -e "\t\t${CYAN}Plasma themes${ENDCOLOR}\n"
 
+sleep 0.5
+
 rm -rf ~/.config/Kvantum/
 
 mkdir -p ~/.config/kitty
