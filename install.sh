@@ -34,5 +34,5 @@ rm -rf ~/Downloads/Relax-Plasma-Themes/
 rm -f ~/.zshrc
 rm -f ~/.config/kitty/kitty.conf
 
-ln -s ${script_dir}/kitty.conf ~/.config/kitty/kitty.conf
-ln -s ${script_dir}/zshrc ~/.zshrc
+cp ${script_dir}/kitty.conf ~/.config/kitty/kitty.conf
+cp ${script_dir}/zshrc ~/.zshrc
