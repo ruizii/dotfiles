@@ -1,5 +1,4 @@
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 # Capitalization correction
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
