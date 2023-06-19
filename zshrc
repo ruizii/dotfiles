@@ -6,6 +6,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 bindkey -e
 bindkey "^[[3~" delete-char
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -114,6 +117,18 @@ alias python='python3'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
+
+function man(){
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    man "$@"
+}
 
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin"
 
