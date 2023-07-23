@@ -130,6 +130,6 @@ function man(){
     man "$@"
 }
 
-PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/go/bin"
+PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin"
 
 eval "$(starship init zsh)"
