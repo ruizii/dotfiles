@@ -1,38 +1,24 @@
 #!/bin/bash
 
-set -Eeuo pipefail
-
-script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
-
-CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 ENDCOLOR='\033[0m'
 
-echo -e "\n\t${BLUE}Installing dotfiles${ENDCOLOR}"
-echo -e "\n\t\t${CYAN}kitty.conf${ENDCOLOR}"
-echo -e "\t\t${CYAN}.zshrc${ENDCOLOR}"
-echo -e "\t\t${CYAN}Kvantum config${ENDCOLOR}"
-echo -e "\t\t${CYAN}GTK themes${ENDCOLOR}"
-echo -e "\t\t${CYAN}Plasma themes${ENDCOLOR}\n"
+sudo apt install kitty npm python3-venv bat ripgrep nodejs golang composer
 
-sleep 0.5
+echo -e "${BLUE}\n\t[+] Instalando Nerd Font...${ENDCOLOR}"
 
-rm -rf ~/.config/Kvantum/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/CascadiaCode.zip &>/dev/null
+mkdir font
+mv CascadiaCode.zip font/
+unzip ./font/CascadiaCode.zip -d ./font/ &>/dev/null
+cp ./font/CaskaydiaCoveNerdFont-Regular.ttf ~/.local/share/fonts/
+rm -rf font/
 
-mkdir -p ~/.config/kitty
+echo -e "${BLUE}\n\t[+] Instalando Bottom"
 
-git clone https://github.com/linuxscoop/Relax-Plasma-Themes.git ~/Downloads/Relax-Plasma-Themes
+curl -LO https://github.com/ClementTsang/bottom/releases/download/0.9.3/bottom_0.9.3_amd64.deb
+sudo dpkg -i bottom_0.9.3_amd64.deb
+rm bottom_0.9.3_amd64.deb
 
-mkdir -p ~/.local/share/color-schemes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Colorschemes/*.colors ~/.local/share/color-schemes/
-mkdir -p ~/.themes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ GTK\ Themes/* ~/.themes/
-mkdir -p ~/.local/share/plasma/desktoptheme && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Plasma\ Themes/ ~/.local/share/plasma/desktoptheme/
-mkdir -p ~/.local/share/aurorae/themes && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Window\ Decotations/* ~/.local/share/aurorae/themes/
-mkdir -p ~/.config/Kvantum && cp -r ~/Downloads/Relax-Plasma-Themes/Relax\ Kvantum\ Themes/* ~/.config/Kvantum/
-
-rm -rf ~/Downloads/Relax-Plasma-Themes/
-
-rm -f ~/.zshrc
-rm -f ~/.config/kitty/kitty.conf
-
-cp ${script_dir}/kitty.conf ~/.config/kitty/kitty.conf
-cp ${script_dir}/zshrc ~/.zshrc
+echo -e "${BLUE}\n\t[+] Instalando Starship"
+curl -sS https://starship.rs/install.sh | sh
