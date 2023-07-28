@@ -15,7 +15,7 @@ trap ctrl_c SIGINT
 
 tput civis
 
-sudo apt install kitty npm python3-venv bat ripgrep nodejs golang composer
+sudo apt install kitty npm python3-venv bat ripgrep nodejs golang composer luarocks exa
 
 echo -e "${BLUE}\n\t[+] Instalando Nerd Font${ENDCOLOR}"
 
