@@ -17,7 +17,7 @@ tput civis
 
 # List
 #
-# kitty npm python3-venv bat ripgrep nodejs golang composer luarocks exa
+# kitty npm python3-venv bat ripgrep nodejs golang composer luarocks exa xclip
 
 echo -e "${BLUE}\n\t[+] Instalando Bottom${ENDCOLOR}"
 sleep 0.5

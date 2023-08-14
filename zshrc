@@ -150,13 +150,18 @@ alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
 
-export LESS_TERMCAP_mb=$'\e[01;31m'
-export LESS_TERMCAP_md=$'\e[01;36m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[01;32m'
+man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;36m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    GROFF_NO_SGR=1 \
+    man "$@"
+}
 
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin"
 
