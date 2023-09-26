@@ -17,14 +17,7 @@ tput civis
 
 # List
 #
-# kitty npm python3-venv bat ripgrep nodejs golang composer luarocks exa xclip
-
-echo -e "${BLUE}\n\t[+] Instalando Bottom${ENDCOLOR}"
-sleep 0.5
-
-curl -s -LO https://github.com/ClementTsang/bottom/releases/download/0.9.3/bottom_0.9.3_amd64.deb
-sudo dpkg -i bottom_0.9.3_amd64.deb
-rm bottom_0.9.3_amd64.deb
+# kitty npm python3-venv bat ripgrep nodejs golang exa xclip btm
 
 echo -e "${BLUE}\n\t[+] Instalando Starship${ENDCOLOR}"
 sleep 0.5
