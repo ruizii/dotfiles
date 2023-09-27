@@ -17,7 +17,7 @@ tput civis
 
 # List
 #
-# kitty npm python3-venv bat ripgrep nodejs golang exa xclip btm
+# kitty npm python3-venv bat ripgrep nodejs golang eza xclip btm
 
 echo -e "${BLUE}\n\t[+] Instalando Starship${ENDCOLOR}"
 sleep 0.5
