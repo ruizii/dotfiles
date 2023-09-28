@@ -143,7 +143,7 @@ else
     echo "zsh-autosuggestions not installed"
 fi
 
-alias ls='exa -g'
+alias ls='eza -g'
 alias cat='batcat -pp'
 alias python='python3'
 alias icat='kitty +kitten icat'
