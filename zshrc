@@ -163,6 +163,6 @@ man() {
     man "$@"
 }
 
-PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin"
+PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.nimble/bin"
 
 eval "$(starship init zsh)"
