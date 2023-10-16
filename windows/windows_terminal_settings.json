@@ -57,6 +57,10 @@
                 "action": "prevTab"
             },
             "keys": "ctrl+shift+left"
+        },
+        {
+            "command": "toggleFocusMode",
+            "keys": "f12"
         }
     ],
     "alwaysShowTabs": true,
@@ -64,6 +68,8 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+    "initialCols": 131,
+    "initialRows": 38,
     "launchMode": "focus",
     "newTabMenu":
     [
@@ -75,16 +81,16 @@
     {
         "defaults":
         {
-            "colorScheme": "One Half Dark",
+            "colorScheme": "Asdf",
             "font":
             {
                 "face": "CaskaydiaCove Nerd Font Mono",
                 "size": 13.0
             },
-            "opacity": 70,
+            "opacity": 100,
             "padding": "8",
             "scrollbarState": "hidden",
-            "useAcrylic": true,
+            "useAcrylic": false,
             "useAtlasEngine": true
         },
         "list":
@@ -117,6 +123,29 @@
     },
     "schemes":
     [
+        {
+            "background": "#23252E",
+            "black": "#1F2229",
+            "blue": "#367BF0",
+            "brightBlack": "#4A4B52",
+            "brightBlue": "#277FFF",
+            "brightCyan": "#05A1F7",
+            "brightGreen": "#47D4B9",
+            "brightPurple": "#962AC3",
+            "brightRed": "#FF7B86",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FF8A18",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#49AEE6",
+            "foreground": "#DADADA",
+            "green": "#5EBDAB",
+            "name": "Asdf",
+            "purple": "#9755B3",
+            "red": "#E06C75",
+            "selectionBackground": "#FFFFFF",
+            "white": "#E6E6E6",
+            "yellow": "#FEA44C"
+        },
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
@@ -395,7 +424,6 @@
         }
     ],
     "showTabsInTitlebar": true,
-    "theme": "dark",
     "themes":
     [
         {
