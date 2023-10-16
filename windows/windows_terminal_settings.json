@@ -86,6 +86,9 @@
             {
                 "face": "CaskaydiaCove Nerd Font Mono",
                 "size": 13.0
+                "features" {
+                    "calt": 0
+                }
             },
             "opacity": 100,
             "padding": "8",
