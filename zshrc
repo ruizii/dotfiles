@@ -144,10 +144,11 @@ else
 fi
 
 alias ls='eza -g'
-alias cat='batcat -pp'
+alias cat='bat -pp'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
+alias glow='glow -p'
 
 man() {
     env \
