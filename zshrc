@@ -13,6 +13,7 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 bindkey -e
 bindkey "^[[3~" delete-char
+bindkey "^[[Z" reverse-menu-complete
 
 # enable completion features
 autoload -Uz compinit
