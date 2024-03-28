@@ -2,4 +2,4 @@ Requisitos:
 kitty npm python3-venv bat ripgrep nodejs golang eza xclip btm
 
 Configuracion KDE:
-Klassy, reglas por aplicacion para el matching title bar, wobbly windows, burn my windows.
+Klassy, reglas por aplicacion para el matching title bar, wobbly windows, burn my windows, tela circle blue dark icons,  
