@@ -3,3 +3,6 @@ kitty npm python3-venv bat ripgrep nodejs golang eza xclip btm
 
 Configuracion KDE:
 Klassy, reglas por aplicacion para el matching title bar, wobbly windows, burn my windows, tela circle blue dark icons,  
+
+yay:
+yay -S zapzap-linux anki transcribe plasma6-wallpapers-wallpaper-engine-git klassy
