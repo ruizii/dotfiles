@@ -164,6 +164,8 @@ man() {
     man "$@"
 }
 
+# Env variables
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.nimble/bin"
+export BAT_THEME="ansi"
 
 eval "$(starship init zsh)"
