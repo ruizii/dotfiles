@@ -144,7 +144,7 @@ else
     echo "zsh-autosuggestions not installed"
 fi
 
-alias ls='eza -g'
+alias ls='eza -g --icons'
 alias cat='bat -pp'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
