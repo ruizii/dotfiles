@@ -10,3 +10,6 @@ yay -S zapzap-linux anki transcribe plasma6-wallpapers-wallpaper-engine-git klas
 Audio:
 Predeterminado funciona en arch con reaper, seleccionar interfaz como dispositivo de entrada predeterminada del sistema y el microfono desde discord.
 Agregar variable de entorno en reaper desde el ícono: PIPEWIRE_LATENCY=128/48000
+
+Fonts:
+ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
