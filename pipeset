@@ -1,0 +1,141 @@
+#!/bin/bash
+
+RED="\e[31m"
+BLUE="\e[34m"
+YELLOW="\e[33m"
+ENDCOLOR="\e[0m"
+
+help () {
+    echo "Pipeset - Override pipewire running configuration by setting forced values"
+    echo -e "\n${BLUE}[+]${ENDCOLOR} Usage: pipeset [Option]\n"
+    echo "Options:"
+
+    echo -e "\t-s"
+    echo -e "\t\tShows the current configuration of pipewire\n"
+
+    echo -e "\t-b <buffer_size>"
+    echo -e "\t\tSets the buffer size to the provided parameter"
+    echo -e "\t\tMust be in the following options: [64, 128, 256, 512, 1024]\n"
+
+    echo -e "\t-r <sample_rate>"
+    echo -e "\t\tSets the sample rate to the provided parameter"
+    echo -e "\t\tMust be in the following options: [44100, 48000, 96000, 192000]\n"
+
+    echo -e "\t-d"
+    echo -e "\t\tRemoves the overriden values and lets pipewire handle the sample rate and buffer size"
+    exit 1
+}
+
+print_status () {
+    echo ""
+    echo -e "${BLUE}[+]${ENDCOLOR} Current settings:\n"
+    pw-metadata -n settings | grep -v "Found" | bat -pp -l python
+}
+
+set_defaults() {
+    current1=$(pw-metadata -n settings | grep clock.force.quantum | cut -d ':' -f 5 | tr -d "'" | cut -d ' ' -f 1)
+    current2=$(pw-metadata -n settings | grep clock.force.rate | cut -d ':' -f 5 | tr -d "'" | cut -d ' ' -f 1)
+
+    if [[ "$current1" -eq 0 && "$current2" -eq 0 ]]; then
+        echo -e "\n${YELLOW}[#]${ENDCOLOR} Defaults already set"
+        exit 2
+    fi
+
+    echo -e "\n${BLUE}[+]${ENDCOLOR} Overridden values removed"
+    pw-metadata -n settings 0 clock.force-quantum 0 >/dev/null
+    pw-metadata -n settings 0 clock.force-rate 0 >/dev/null
+}
+
+set_size () {
+    current=$(pw-metadata -n settings | grep clock.force.quantum | cut -d ':' -f 5 | tr -d "'" | cut -d ' ' -f 1)
+
+    if [[ "$current" == "$1" ]]; then
+        echo -e "\n${YELLOW}[#]${ENDCOLOR} Buffer size already set to that vaule"
+        exit 2
+    fi
+
+    if [[ "$1" -eq 64 || "$1" -eq 128 || "$1" -eq 256 || "$1" -eq 512 || "$1" -eq 1024 ]]; then
+        echo -e "\n${BLUE}[+]${ENDCOLOR} Buffer size set to: ${YELLOW}$1${ENDCOLOR}"
+        pw-metadata -n settings 0 clock.force-quantum $1 >/dev/null
+    else
+        echo -e "\n${RED}[!]${ENDCOLOR} Invalid argument."
+        echo -e "\nAvailable options: [64, 128, 256, 512, 1024]"
+        exit 1
+    fi
+}
+
+set_rate () {
+    current=$(pw-metadata -n settings | grep clock.force.rate | cut -d ':' -f 5 | tr -d "'" | cut -d ' ' -f 1)
+
+    if [[ "$current" == "$1" ]]; then
+        echo -e "\n${YELLOW}[!]${ENDCOLOR} Sample rate already set to that vaule"
+        exit 2
+    fi
+
+    if [[ "$1" -eq 44100 || "$1" -eq 48000 || "$1" -eq 96000 || "$1" -eq 192000 ]]; then
+        echo -e "\n${BLUE}[+]${ENDCOLOR} Sample rate set to: ${YELLOW}$1${ENDCOLOR}"
+        pw-metadata -n settings 0 clock.force-rate $1 >/dev/null
+    else
+        echo -e "\n${RED}[!]${ENDCOLOR} Invalid argument."
+        echo -e "\nAvailable options: [44100, 48000, 96000, 192000]"
+        exit 1
+    fi
+}
+
+option_s=0
+option_b=0
+option_r=0
+option_d=0
+
+while getopts ":sb:r:d" option; do
+    case $option in
+        s)
+            option_s=1
+            ;;
+        b)
+            option_b=1
+            buffer_size="${OPTARG}"
+            ;;
+        r)
+            option_r=1
+            sample_rate="${OPTARG}"
+            ;;
+        d)
+            option_d=1
+            ;;
+        \?)
+            echo -e "\n${RED}[!]${ENDCOLOR} Invalid option"
+            help
+            exit 1
+            ;;
+        :)
+            echo -e "\n${RED}[!]${ENDCOLOR} Option${YELLOW} -$OPTARG${ENDCOLOR} requires an argument" 1>&2
+            exit 1
+            ;;
+    esac
+done
+
+if [[ "$((option_s + option_b + option_r + option_d))" -eq 0 ]]; then
+    help
+fi
+
+if [[ "$((option_s + option_b + option_r + option_d))" -ne 1 ]]; then
+    echo -e "\n${RED}[!]${ENDCOLOR} Select only one option"
+    exit 1
+fi
+
+if [[ "$option_s" -eq 1 ]]; then
+    print_status
+fi
+
+if [[ "$option_b" -eq 1 ]]; then
+    set_size $buffer_size
+fi
+
+if [[ "$option_r" -eq 1 ]]; then
+    set_rate $sample_rate
+fi
+
+if [[ "$option_d" -eq 1 ]]; then
+    set_defaults
+fi
