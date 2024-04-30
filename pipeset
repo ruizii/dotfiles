@@ -6,7 +6,7 @@ YELLOW="\e[33m"
 ENDCOLOR="\e[0m"
 
 help () {
-    echo -e "Usage: pipeset [Option]\n"
+    echo -e "Usage: pipeset [OPTION]\n"
     echo "Options:"
 
     echo -e "\t-s"
@@ -119,7 +119,7 @@ while getopts ":sb:r:dh" option; do
 done
 
 if [[ "$((option_s + option_b + option_r + option_d))" -eq 0 ]]; then
-    echo -e "\n${RED}[x]${ENDCOLOR} Must select an option"
+    echo -e "\n${RED}[x]${ENDCOLOR} Must select an option\n"
     help
     exit 1
 fi
