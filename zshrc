@@ -149,7 +149,9 @@ alias cat='bat -pp'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
+alias ftp='lftp'
 alias glow='glow -p'
+alias fastfetch='fastfetch -c asdf'
 
 man() {
     env \
@@ -164,8 +166,27 @@ man() {
     man "$@"
 }
 
+lrcat() {
+    if [[ "$#" != 1 ]]; then
+        print -P "\n%F{red}[x]%f Must provide port number to listen on"
+        print -P "%F{yellow}[!]%f Only works on linux targets"
+
+        echo -e "\nUsage: lrcat <port>"
+        return 1
+    else
+        echo -n "stty rows 46 cols 190" | xclip -selection clipboard
+        print -P "\n%F{blue}[!]%f Fix stty size on the reverse shell"
+        print -P "%F{blue}[!]%f %F{yellow}stty rows 46 cols 190%f copied to clipboard\n"
+        stty raw -echo && rcat l -ie "/usr/bin/script -qc /bin/bash /dev/null; export TERM=xterm-256color; alias ls='ls --color=auto'; alias grep='grep --color=auto';" $1 && reset
+    fi
+}
+
+
 # Env variables
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.nimble/bin"
 export BAT_THEME="ansi"
 
+please
+
+eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
