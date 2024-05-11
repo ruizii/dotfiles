@@ -7,6 +7,7 @@ setopt nonomatch           # hide error message if there is no match for the pat
 setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
 setopt promptsubst         # enable command substitution in prompt
+setopt SHARE_HISTORY
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -33,8 +34,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 
 alias history="history 0"
 
@@ -151,7 +152,25 @@ alias ip='ip --color=auto'
 alias grep='grep --color=auto'
 alias ftp='lftp'
 alias glow='glow -p'
-alias fastfetch='fastfetch -c asdf'
+alias leetcode='nvim leetcode.nvim'
+alias upc='cd /run/media/drive/upc/'
+alias updog='sudo updog -p 80'
+
+scan() {
+    if [[ "$#" -eq 0 ]]; then
+        print -P "%F{red}[x] Please provide IP address to scan%f"
+    elif [[ "$#" -eq 1 ]]; then
+        sudo rustscan -a "$1" -- -sCV -oN scan.txt | lolcat
+    else
+        args=""
+        for arg in "$@"; do
+            args="$args,$arg"
+        done
+        args=${args:1}
+        
+        sudo rustscan -a "$args" -- -sCV -oN scan.txt | lolcat
+    fi
+}
 
 man() {
     env \
@@ -166,25 +185,10 @@ man() {
     man "$@"
 }
 
-lrcat() {
-    if [[ "$#" != 1 ]]; then
-        print -P "\n%F{red}[x]%f Must provide port number to listen on"
-        print -P "%F{yellow}[!]%f Only works on linux targets"
-
-        echo -e "\nUsage: lrcat <port>"
-        return 1
-    else
-        echo -n "stty rows 46 cols 190" | xclip -selection clipboard
-        print -P "\n%F{blue}[!]%f Fix stty size on the reverse shell"
-        print -P "%F{blue}[!]%f %F{yellow}stty rows 46 cols 190%f copied to clipboard\n"
-        stty raw -echo && rcat l -ie "/usr/bin/script -qc /bin/bash /dev/null; export TERM=xterm-256color; alias ls='ls --color=auto'; alias grep='grep --color=auto';" $1 && reset
-    fi
-}
-
-
 # Env variables
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.nimble/bin"
 export BAT_THEME="ansi"
+export EDITOR="/usr/bin/nvim"
 
 please
 
