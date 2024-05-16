@@ -146,15 +146,19 @@ else
 fi
 
 alias ls='eza -g --icons always'
-alias cat='bat -pp'
+# alias cat='bat -pp'
+alias grep='rg'
+alias cat='lolcat'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
-alias grep='grep --color=auto'
 alias ftp='lftp'
 alias glow='glow -p'
 alias leetcode='nvim leetcode.nvim'
 alias upc='cd /run/media/drive/upc/'
 alias updog='sudo updog -p 80'
+alias testc='mkdir -p ~/test && cd ~/test && touch main.c && mkfl'
+alias rmtest='cd ~ && rm -rf ./test/'
+alias szsh='source ~/.zshrc'
 
 scan() {
     if [[ "$#" -eq 0 ]]; then
@@ -189,8 +193,6 @@ man() {
 PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.nimble/bin"
 export BAT_THEME="ansi"
 export EDITOR="/usr/bin/nvim"
-
-please
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
