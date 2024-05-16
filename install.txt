@@ -1,5 +1,5 @@
 Requisitos:
-kitty npm python3-venv bat ripgrep nodejs golang eza xclip btm
+pacman -S kitty fastfetch npm python3-venv bat ripgrep nodejs golang eza xclip btm zsh-syntax-highlighting zsh-autosuggestions starship proxychains tor
 
 Configuracion KDE:
 Klassy, reglas por aplicacion para el matching title bar, configuración por defecto, agregar propiedad "title bar theme", wobbly windows, burn my windows, tela circle blue dark icons,  
@@ -12,4 +12,4 @@ Predeterminado funciona en arch con reaper, seleccionar interfaz como dispositiv
 Agregar variable de entorno en reaper desde el ícono: PIPEWIRE_LATENCY=128/48000
 
 Fonts:
-ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
+ots-cascadia-code ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
