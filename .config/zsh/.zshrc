@@ -21,12 +21,13 @@ for dump in "${ZDOTDIR}/.zcompdump(N.mh+24)"; do
   compinit
 done
 
-setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
-setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
+setopt interactive_comments
 setopt promptsubst         # enable command substitution in prompt
 setopt SHARE_HISTORY
 setopt HIST_SAVE_NO_DUPS
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
 
 WORDCHARS=${WORDCHARS/\/} # Forward slash as word separator
 WORDCHARS=${WORDCHARS/_} # Underscore as word separator
@@ -67,9 +68,6 @@ KEYTIMEOUT=10 # For speeding up esc menu completion cancelation
 
 alias history="history 0"
 
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
@@ -102,7 +100,7 @@ ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[assign]=none
 ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+ZSH_HIGHLIGHT_STYLES[comment]=fg=white,bold
 ZSH_HIGHLIGHT_STYLES[named-fd]=none
 ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
