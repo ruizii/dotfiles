@@ -1,15 +1,18 @@
 Requisitos:
 pacman -S kitty fastfetch npm python3-venv bat ripgrep nodejs golang eza xclip btm zsh-syntax-highlighting zsh-autosuggestions starship proxychains tor
 
-Configuracion KDE:
-Klassy, reglas por aplicacion para el matching title bar, configuración por defecto, agregar propiedad "title bar theme", wobbly windows, burn my windows, tela circle blue dark icons,  
-
 yay:
-yay -S zapzap-linux anki transcribe plasma6-wallpapers-wallpaper-engine-git klassy
+yay -S zapzap-linux transcribe plasma6-wallpapers-wallpaper-engine-git klassy
+
+Configuracion KDE:
+Klassy, per app config to disable title bar, set matching title bar to some apps, wobbly windows, tela circle blue dark icons.
+
+
+Blur:
+Instalar script de kde: https://github.com/taj-ny/kwin-effects-forceblur
 
 Audio:
-Predeterminado funciona en arch con reaper, seleccionar interfaz como dispositivo de entrada predeterminada del sistema y el microfono desde discord.
-Agregar variable de entorno en reaper desde el ícono: PIPEWIRE_LATENCY=128/48000
+Select interface as default system audio input, change to mic in voice apps's settings.
 
 Fonts:
 ots-cascadia-code ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
