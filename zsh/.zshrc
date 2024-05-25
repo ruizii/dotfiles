@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+todo
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -117,7 +118,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias cat='bat -pp'
 alias ls='eza -g --icons always'
 alias grep='rg'
-alias cat='lolcat'
+alias cat='bat -pp'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias ftp='lftp'
@@ -128,8 +129,44 @@ alias updog='sudo updog -p 80'
 alias testc='mkdir -p ~/test && cd ~/test && touch main.c && mkfl'
 alias rmtest='cd ~ && rm -rf ./test/'
 alias szsh='source ~/.config/zsh/.zshrc'
+alias backup-config='rsync -avPh /home/asdf/.config /run/media/asdf/New\ Volume/Backup/'
 
+# fzf
+export FZF_DEFAULT_COMMAND="fd . -H -E '.git' --type f --color=always"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd . -H -t d --color=always"
+export FZF_DEFAULT_OPTS="--height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
+export FZF_COMPLETION_TRIGGER=''
+
+source <(fzf --zsh)
+
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
+# Configuring fuzzy completion
+_fzf_compgen_path() {
+  fd --type f --hidden --color=always --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+  case "$command" in
+    cd)           fzf --preview 'eza -T {} | head -200'   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
+  esac
+}
+
+# zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# powerline10k
 source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
