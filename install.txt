@@ -15,4 +15,4 @@ Audio:
 Select interface as default system audio input, change to mic in voice apps's settings.
 
 Fonts:
-ots-cascadia-code ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
+ots-cascadia-code otf-symbola
