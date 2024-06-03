@@ -1,3 +1,5 @@
 # dotfiles
 
-miau
+```bash
+stow kitty zsh
+```
