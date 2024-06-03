@@ -12,13 +12,13 @@ export SAVEHIST=10000
 
 export BAT_THEME="ansi"
 export PAGER="/usr/bin/less"
-export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin"
+export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${HOME}/.local/share/nvim/mason/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND="fd . -H -E '.git' --type f --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd . -H -t d --color=always"
-export FZF_DEFAULT_OPTS="--height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
+export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
 export FZF_COMPLETION_TRIGGER=''
 
 
