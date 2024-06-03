@@ -1,8 +1,7 @@
-Requisitos:
-pacman -S kitty fastfetch npm python3-venv bat ripgrep nodejs golang eza xclip btm zsh-syntax-highlighting zsh-autosuggestions starship proxychains tor
+pacman -S kitty fastfetch npm python3-venv bat ripgrep nodejs golang eza xclip btm zsh-syntax-highlighting zsh-autosuggestions starship proxychains tor fzf zoxide
 
 yay:
-yay -S zapzap-linux transcribe plasma6-wallpapers-wallpaper-engine-git klassy
+yay -S zapzap-linux transcribe plasma6-wallpapers-wallpaper-engine-git klassy zsh-theme-powerlevel10k-git
 
 Configuracion KDE:
 Klassy, per app config to disable title bar, set matching title bar to some apps, wobbly windows, tela circle blue dark icons.
@@ -15,4 +14,4 @@ Audio:
 Select interface as default system audio input, change to mic in voice apps's settings.
 
 Fonts:
-ots-cascadia-code otf-symbola
+ots-cascadia-code ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
