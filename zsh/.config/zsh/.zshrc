@@ -48,7 +48,7 @@ zstyle ':completion:*' use-cache on # Cache for speed
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache" # Cache file location
 
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d :3 --%f' # Format for completion category
-zstyle ':completion:*:warnings' format '%F{red}-- No matches found --%f' # Format for when no match
+zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f' # Format for when no match
 zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} # Colorize suggestions
 zstyle ':completion:*' squeeze-slashes true # // = /
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s # Message for when paging
@@ -119,7 +119,7 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias ls='eza -g --icons always'
+alias ls='eza --icons always'
 alias grep='rg'
 alias cat='bat -pp'
 alias icat='kitty +kitten icat'
@@ -135,7 +135,8 @@ alias szsh='source ~/.config/zsh/.zshrc'
 alias backup-config='rsync -avPh /home/asdf/.config /run/media/asdf/New\ Volume/Backup/'
 alias spotify-cli='spt'
 alias pencil="NVIM_APPNAME=pencil nvim"
-alias qwen="ollama run codeqwen:7b-chat-v1.5-q8_0"
+# alias qwen="ollama run codeqwen:7b-chat-v1.5-q8_0"
+alias qwen="ollama run codeqwen:7b-chat-v1.5-q5_1"
 # alias llama3="ollama run llama3:8b-instruct-q8_0"
 alias llama3="ollama run llama3"
 
