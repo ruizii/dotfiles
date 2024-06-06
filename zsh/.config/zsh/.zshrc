@@ -139,6 +139,7 @@ alias pencil="NVIM_APPNAME=pencil nvim"
 alias qwen="ollama run codeqwen:7b-chat-v1.5-q5_1"
 # alias llama3="ollama run llama3:8b-instruct-q8_0"
 alias llama3="ollama run llama3"
+alias alan="kitten icat ${HOME}/Pictures/alan.jpg"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
