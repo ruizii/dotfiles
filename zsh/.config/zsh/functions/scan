@@ -2,14 +2,8 @@ scan() {
     if [[ "$#" -eq 0 ]]; then
         print -P "%F{red}[x] Please provide IP address to scan%f"
     elif [[ "$#" -eq 1 ]]; then
-        sudo rustscan -a "$1" -- -sCV -oN scan.txt | bat
+        sudo nmap -sS -p- -sCV -v "$1" -oN scan.txt | bat -pp -l python
     else
-        args=""
-        for arg in "$@"; do
-            args="$args,$arg"
-        done
-        args=${args:1}
-
-        sudo rustscan -a "$args" -- -sCV -oN scan.txt | bat
+        print -P "%F{red}[x] Too many arguments%f"
     fi
 }
