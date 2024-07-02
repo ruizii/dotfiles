@@ -137,25 +137,8 @@ alias gdb='gdb -q'
 alias juice-shop='docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop'
 alias ubuntu='docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -it ubuntu'
 alias hexyl='hexyl --border none'
-
-declare -A pomo_options
-pomo_options["work"]="25"
-pomo_options["break"]="10"
-
-pomodoro () {
-  clear
-  echo
-  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-  val=$1
-  echo $val | lolcat
-  timer ${pomo_options["$val"]}m
-  notify-send "'$val' session done"
-  (aplay --quiet "${HOME}/Music/bell.wav" &)
-  fi
-}
-
-alias wo="pomodoro 'work'"
-alias br="pomodoro 'break'"
+alias pacman='aura'
+alias sudo='sudo '
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
