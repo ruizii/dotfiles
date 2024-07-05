@@ -1,5 +1,5 @@
 # dotfiles
 
 ```bash
-stow kitty zsh
+stow kitty zsh .gdbinit .gef.rc
 ```
