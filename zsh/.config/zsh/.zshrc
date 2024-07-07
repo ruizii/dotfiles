@@ -108,6 +108,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+ZSH_HIGHLIGHT_STYLES[alias]=fg=blue
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
