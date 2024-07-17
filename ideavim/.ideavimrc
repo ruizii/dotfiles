@@ -1,0 +1,65 @@
+let mapleader=" "
+
+set scrolloff=0
+set number relativenumber
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+
+" Plugins
+set which-key
+set quickscope
+set notimeout
+set NERDTree
+
+" Clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Mappings
+nmap <leader>1 <Action>(HarpoonerOpenFile0)
+nmap <leader>2 <Action>(HarpoonerOpenFile1)
+nmap <leader>3 <Action>(HarpoonerOpenFile2)
+nmap <leader>4 <Action>(HarpoonerOpenFile3)
+nmap <leader>e <Action>(HarpoonerQuickMenu)
+nmap <leader>a <Action>(HarpoonerAddFile)
+
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>sv :action SplitVertically<CR>
+nnoremap <leader>sh :action SplitHorizontally<CR>
+nnoremap <C-t> :action Terminal.OpenInTerminal<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <F5> :action Run<CR>
+nnoremap <leader>fa :action GotoAction<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fg :action TextSearchAction<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fr :action RecentFiles<CR>
+nnoremap <leader>c :action CloseContent<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap <Esc> :nohl<CR>
+map K <Action>(ShowHoverInfo)
+nnoremap gE :action GotoPreviousError<CR>
+nmap <leader>/ gcc
+vmap <leader>/ gc
+noremap H <nop>
+noremap L <nop>
+nnoremap <F2> :action ToggleLineBreakpoint<CR>

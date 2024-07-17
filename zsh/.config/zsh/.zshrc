@@ -113,7 +113,7 @@ ZSH_HIGHLIGHT_STYLES[alias]=fg=blue
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ls='eza --icons always'
-alias grep='rg'
+alias grep='shitty-grep'
 alias cat='bat -pp'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
@@ -137,7 +137,7 @@ alias nvconfig="builtin cd ${HOME}/.config/nvim && nvim"
 alias gdb='gdb -q'
 alias juice-shop='docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop'
 alias ubuntu='docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -it ubuntu'
-alias hexyl='hexyl --border none'
+alias xd='hexyl --border none'
 alias pacman='aura'
 alias sudo='sudo '
 

@@ -1,8 +1,8 @@
 # dotfiles
 
 ```bash
-stow kitty zsh gdb
+stow kitty zsh gdb ideavim
 
 # uninstall
-stow -D kitty zsh gdb
+stow -D kitty zsh gdb ideavim
 ```
