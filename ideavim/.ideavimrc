@@ -47,9 +47,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <C-b> :NERDTree<CR>
 nnoremap <F5> :action Run<CR>
 nnoremap <leader>fa :action GotoAction<CR>
-nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>ff :action com.mituuz.fuzzier.Fuzzier<CR>
 nnoremap <leader>fg :action TextSearchAction<CR>
 nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
