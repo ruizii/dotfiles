@@ -113,6 +113,7 @@ ZSH_HIGHLIGHT_STYLES[alias]=fg=blue
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ls='eza --icons always'
+alias copy='wl-copy'
 alias grep='shitty-grep'
 alias cat='bat -pp'
 alias icat='kitty +kitten icat'
@@ -124,10 +125,7 @@ alias upc='cd /run/media/drive/upc/'
 alias updog='sudo updog -p 80'
 alias testc='mkdir -p ~/test && cd ~/test && touch main.c && mkfl'
 alias rmtest='cd ~ && rm -rf ./test/'
-alias szsh='source ~/.config/zsh/.zshrc'
 alias backup-config='rsync -avPh /home/asdf/.config /run/media/asdf/New\ Volume/Backup/'
-alias spotify-cli='spt'
-alias pencil="NVIM_APPNAME=pencil nvim"
 # alias qwen="ollama run codeqwen:7b-chat-v1.5-q8_0"
 alias qwen="ollama run codeqwen:7b-chat-v1.5-q5_1"
 # alias llama3="ollama run llama3:8b-instruct-q8_0"
