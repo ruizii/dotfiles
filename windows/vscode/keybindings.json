@@ -40,7 +40,7 @@
     {
         "key": "ctrl+L",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "filesExplorerFocus"
+        "when": "sideBarFocus"
     },
     {
         "key": "ctrl+J",
@@ -102,5 +102,20 @@
     {
         "key": "ctrl+shift+w",
         "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-problems.action.showQuickFixes",
+        "when": "problemFocus"
+    },
+    {
+        "key": "alt+enter",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
     },
 ]
