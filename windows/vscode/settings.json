@@ -22,6 +22,14 @@
         },
         {
             "before": [
+                "<esc>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
                 "<leader>",
                 "f",
                 "f"
@@ -126,5 +134,7 @@
     "workbench.editor.enablePreview": false,
     "vim.hlsearch": true,
     "terminal.integrated.fontSize": 15,
-    "terminal.integrated.fontWeightBold": "normal"
+    "terminal.integrated.fontWeightBold": "normal",
+    "vim.searchHighlightColor": "rgba(235,208,156,0.8)",
+    "vim.searchHighlightTextColor": "rgba(50,50,50,1)"
 }
