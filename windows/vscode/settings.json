@@ -72,16 +72,6 @@
             "before": [
                 "<leader>",
                 "f",
-                "r"
-            ],
-            "commands": [
-                "workbench.action.openRecent"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
                 "a"
             ],
             "commands": [
@@ -135,5 +125,7 @@
     "window.commandCenter": false,
     "editor.stickyScroll.enabled": false,
     "vim.useSystemClipboard": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.editor.enablePreview": false,
+    "vim.hlsearch": true,
 }
-
