@@ -115,9 +115,6 @@
             ]
         }
     ],
-    "apc.imports": [
-        "file:///home/asdf/.vscode-oss/extensions/brandonkirbyson.vscode-animations-2.0.1-universal/dist/updateHandler.js"
-    ],
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.smoothScrolling": true,
     "terminal.integrated.smoothScrolling": true,
@@ -128,4 +125,6 @@
     "workbench.list.openMode": "doubleClick",
     "workbench.editor.enablePreview": false,
     "vim.hlsearch": true,
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontWeightBold": "normal"
 }
