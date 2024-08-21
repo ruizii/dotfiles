@@ -121,23 +121,20 @@ alias ip='ip --color=auto'
 alias ftp='lftp'
 alias glow='glow -p'
 alias leetcode='nvim leetcode.nvim'
-alias upc='cd /run/media/drive/upc/'
+alias upc='cd /run/media/asdf/drive/upc && dolphin .'
 alias updog='sudo updog -p 80'
 alias testc='mkdir -p ~/test && cd ~/test && touch main.c && mkfl'
+alias testgo='mkdir -p ~/test && cd ~/test && go mod init test && echo "package main" > main.go'
 alias rmtest='cd ~ && rm -rf ./test/'
 alias backup-config='rsync -avPh /home/asdf/.config /run/media/asdf/New\ Volume/Backup/'
-# alias qwen="ollama run codeqwen:7b-chat-v1.5-q8_0"
-alias qwen="ollama run codeqwen:7b-chat-v1.5-q5_1"
-# alias llama3="ollama run llama3:8b-instruct-q8_0"
-alias llama3="ollama run llama3"
 alias alan="kitten icat ${HOME}/Pictures/alan.jpg"
 alias nvconfig="builtin cd ${HOME}/.config/nvim && nvim"
 alias gdb='gdb -q'
+alias llama3='ollama run llama3'
 alias juice-shop='docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop'
 alias ubuntu='docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -it ubuntu'
 alias xd='hexyl --border none'
-alias pacman='aura'
-alias sudo='sudo '
+alias kontakt-config="nvim ${HOME}/.local/share/wineprefixes/kontakt/drive_c/users/asdf/AppData/Local/Kontakt\ 7\ Portable/UserData/Settings.cfg"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

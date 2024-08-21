@@ -1,6 +1,6 @@
 let mapleader=" "
 
-set scrolloff=0
+set scrolloff=8
 set number relativenumber
 set ignorecase
 set smartcase
@@ -9,9 +9,7 @@ set hlsearch
 set visualbell
 
 " Plugins
-set which-key
 set quickscope
-set notimeout
 set NERDTree
 
 " Clipboard
@@ -40,18 +38,18 @@ nmap <leader>a <Action>(HarpoonerAddFile)
 
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
-nnoremap <leader>sv :action SplitVertically<CR>
-nnoremap <leader>sh :action SplitHorizontally<CR>
-nnoremap <C-t> :action Terminal.OpenInTerminal<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-b> :NERDTree<CR>
+inoremap <C-y> :action EditorChooseLookupItemReplace<CR>
 nnoremap <F5> :action Run<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <leader>fa :action GotoAction<CR>
 nnoremap <leader>ff :action com.mituuz.fuzzier.Fuzzier<CR>
 nnoremap <leader>fg :action TextSearchAction<CR>
+nnoremap <leader>ls :action GotoSymbol<CR>
+nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
 nnoremap <leader>c :action CloseContent<CR>
