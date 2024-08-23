@@ -125,6 +125,7 @@ alias upc='cd /run/media/asdf/drive/upc && dolphin .'
 alias updog='sudo updog -p 80'
 alias testc='mkdir -p ~/test && cd ~/test && touch main.c && mkfl'
 alias testgo='mkdir -p ~/test && cd ~/test && go mod init test && echo "package main" > main.go'
+alias testasm='mkdir -p ~/test && cd ~/test && mkflasm && echo "global _start" > main.asm && echo "" >> main.asm && echo "section .text" >> main.asm'
 alias rmtest='cd ~ && rm -rf ./test/'
 alias backup-config='rsync -avPh /home/asdf/.config /run/media/asdf/New\ Volume/Backup/'
 alias alan="kitten icat ${HOME}/Pictures/alan.jpg"
