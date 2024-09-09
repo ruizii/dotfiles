@@ -115,7 +115,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias ls='eza --icons always'
 alias copy='wl-copy'
 alias grep='shitty-grep'
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias cat='bat -pp'
+alias cheatsheets='dolphin ~/Documents/CBBH\ Cheatsheets/'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias ftp='lftp'
