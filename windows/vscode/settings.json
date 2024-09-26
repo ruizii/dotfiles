@@ -1,11 +1,10 @@
 {
-    "window.titleBarStyle": "custom",
-    "editor.fontFamily": "'Cascadia Code NF', 'monospace', monospace",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "'Cascadia Code', 'monospace', monospace",
+    "editor.fontSize": 18,
+    "editor.fontWeight": 400,
     "workbench.colorTheme": "One Dark Pro Darker",
     "editor.formatOnSave": true,
     "editor.lineNumbers": "relative",
-    "workbench.editor.showTabs": "none",
     "vim.highlightedyank.enable": true,
     "vim.leader": " ",
     "files.insertFinalNewline": true,
@@ -29,8 +28,7 @@
             ]
         },
         {
-            "before": [
-                "<leader>",
+            "before": ["<leader>",
                 "f",
                 "f"
             ],
@@ -136,5 +134,7 @@
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.fontWeightBold": "normal",
     "vim.searchHighlightColor": "rgba(235,208,156,0.8)",
-    "vim.searchHighlightTextColor": "rgba(50,50,50,1)"
+    "vim.searchHighlightTextColor": "rgba(50,50,50,1)",
+    "editor.cursorSurroundingLines": 8,
+    "prettier.tabWidth": 4
 }
