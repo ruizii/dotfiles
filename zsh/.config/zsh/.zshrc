@@ -1,5 +1,3 @@
-todo
-
 fpath=("${ZDOTDIR}/functions" $fpath)
 
 # Custom functions
@@ -116,7 +114,7 @@ alias ls='eza --icons always'
 alias copy='wl-copy'
 alias grep='shitty-grep'
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
-alias cat='bat -pp'
+alias cat='bat'
 alias cheatsheets='dolphin ~/Documents/CBBH\ Cheatsheets/'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
@@ -144,9 +142,6 @@ source <(fzf --zsh)
 
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
-
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
 
 # Prompt
 eval "$(starship init zsh)"
