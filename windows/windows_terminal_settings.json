@@ -99,8 +99,7 @@
             "antialiasingMode": "grayscale",
             "bellStyle": "none",
             "closeOnExit": "always",
-            "colorScheme": "Campbell",
-            "experimental.retroTerminalEffect": false,
+            "colorScheme": "One Half Dark",
             "experimental.rightClickContextMenu": true,
             "font": 
             {
@@ -108,8 +107,7 @@
                 "size": 13,
                 "weight": "normal"
             },
-            "opacity": 80,
-            "useAcrylic": true
+            "opacity": 0
         },
         "list": 
         [
@@ -173,6 +171,33 @@
     "schemes": [],
     "showTerminalTitleInTitlebar": false,
     "tabSwitcherMode": "disabled",
-    "themes": [],
-    "useAcrylicInTabRow": true
+    "tabWidthMode": "equal",
+    "theme": "Mica",
+    "themes": 
+    [
+        {
+            "name": "Mica",
+            "tab": 
+            {
+                "background": "terminalBackground",
+                "iconStyle": "default",
+                "showCloseButton": "never",
+                "unfocusedBackground": "#00000000"
+            },
+            "tabRow": 
+            {
+                "background": "#00000000",
+                "unfocusedBackground": "#00000000"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": "#0C0C0CFF",
+                "unfocusedFrame": null,
+                "useMica": true
+            }
+        }
+    ],
+    "useAcrylicInTabRow": false
 }
