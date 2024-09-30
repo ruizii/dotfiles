@@ -5,7 +5,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export BAT_THEME="ansi"
-export PAGER="/usr/bin/less"
 export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${HOME}/.local/share/nvim/mason/bin"
 
 # fzf
@@ -136,7 +135,8 @@ alias ls='eza --icons always'
 alias copy='wl-copy'
 alias grep='shitty-grep'
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
-alias cat='bat'
+alias less='bat'
+alias cat='bat -pp'
 alias cheatsheets='dolphin ~/Documents/CBBH\ Cheatsheets/'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
