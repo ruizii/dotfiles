@@ -4,7 +4,7 @@ export HSA_OVERRIDE_GFX_VERSION=10.3.0
 
 export HISTFILE="${ZDOTDIR}/.zhistory"
 export HISTSIZE=10000
-export SAVEHIST=10000j
+export SAVEHIST=10000
 
 export BAT_THEME="ansi"
 export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${HOME}/.local/share/nvim/mason/bin"
