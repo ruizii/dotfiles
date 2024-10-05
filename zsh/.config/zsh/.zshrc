@@ -58,7 +58,7 @@ zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/zcompcache" # Cache fil
 
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d :3 --%f' # Format for completion category
 zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f' # Format for when no match
-jzstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} "ma=38;5;253;48;5;23" # Colorize suggestions
+zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} "ma=38;5;253;48;5;23" # Colorize suggestions
 zstyle ':completion:*' squeeze-slashes true # // = /
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s # Message for when paging
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
