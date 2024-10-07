@@ -104,7 +104,9 @@ else
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-if [ "$XDG_SESSION_TYPE" = 'x11' ]; then
+if uname -r | grep -q "microsoft"; then
+    alias copy='/mnt/c/Windows/System32/clip.exe'
+elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     alias copy='xclip -selection clipboard'
 else
     alias copy='wl-copy'
