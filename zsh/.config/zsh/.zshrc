@@ -104,6 +104,12 @@ else
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+if [ "$XDG_SESSION_TYPE" = 'x11' ]; then
+    alias copy='xclip -selection clipboard'
+else
+    alias copy='wl-copy'
+fi
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
@@ -149,7 +155,6 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 ZSH_HIGHLIGHT_STYLES[alias]=fg=blue
 
 alias ls='eza --icons always'
-alias copy='wl-copy'
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
