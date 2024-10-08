@@ -20,10 +20,8 @@ export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-name
 export DEFAULT_CREDS='/usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt'
 
 # fzf
-export FZF_DEFAULT_COMMAND="fd . -H -E '.git' --type f --color=always"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd . -H -t d --color=always"
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_TRIGGER=''
 
 # Colors for completion
@@ -81,13 +79,17 @@ KEYTIMEOUT=10 # For speeding up esc menu completion cancelation
 
 # Distro-dependent settings
 if [ -f /etc/arch-release ]; then
-	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export FZF_DEFAULT_COMMAND="fd . -H -E '.git' --type f --color=always"
+    export FZF_ALT_C_COMMAND="fd . -H --type d --color=always"
 else
 	fd() { fdfind "$@" ; } ;
 	bat() { batcat "$@" ; } ;
 	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export FZF_DEFAULT_COMMAND="fdfind . -H -E '.git' --type f --color=always"
+    export FZF_ALT_C_COMMAND="fdfind . -H --type d --color=always"
 fi
 
 source "${ZDOTDIR}/config.d/highlights.zsh"
