@@ -1,3 +1,11 @@
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_path() {
+  fd --type f --hidden --color=always --follow --exclude ".git" . "$1"
+}
+
 _fzf_comprun() {
   local command=$1
   shift
@@ -14,4 +22,3 @@ _fzf_comprun() {
     ;;
   esac
 }
-

@@ -1,9 +1,0 @@
-scan() {
-    if [[ "$#" -eq 0 ]]; then
-        print -P "%F{red}[x]%f Please provide IP address to scan"
-    elif [[ "$#" -eq 1 ]]; then
-        sudo nmap -sS -p- -sCV -T4 -vvv "$1" -oN scan.txt | bat -pp -l python
-    else
-        print -P "%F{red}[x]%f Too many arguments"
-    fi
-}

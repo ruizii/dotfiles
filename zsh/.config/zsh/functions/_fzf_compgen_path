@@ -1,3 +1,0 @@
-_fzf_compgen_path() {
-  fd --type f --hidden --color=always --follow --exclude ".git" . "$1"
-}
