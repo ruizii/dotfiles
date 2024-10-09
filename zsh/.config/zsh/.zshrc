@@ -18,6 +18,9 @@ export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.
 export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
 export DEFAULT_CREDS='/usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt'
 
+export VISUAL=vim
+export EDITOR="${VISUAL}"
+
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
 export FZF_CTRL_T_COMMAND="fd . -H -E '.git' --type f --color=always"
 export FZF_COMPLETION_TRIGGER=''
