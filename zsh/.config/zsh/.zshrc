@@ -7,9 +7,10 @@ export SAVEHIST=10000
 export BAT_THEME="ansi"
 export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${HOME}/.local/share/shitty-ctftools/bin:${HOME}/.local/share/nvim/mason/bin"
 
-export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
+export DIRS='/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
 export DIRS_COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
+export FILES='/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt'
 export SUBDOMAINS='/usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt'
 export API_ENDPOINTS='/usr/share/seclists/Discovery/Web-Content/common-api-endpoints-mazen160.txt'
 export ROCKYOU='/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt'
