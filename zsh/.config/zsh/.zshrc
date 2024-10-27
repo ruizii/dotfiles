@@ -1,11 +1,11 @@
-export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CACHE_HOME="$HOME/.cache"
 
-export HISTFILE="${ZDOTDIR}/.zhistory"
+export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
 export BAT_THEME="ansi"
-export PATH="${PATH}:${HOME}/bin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${HOME}/.local/share/shitty-ctftools/bin:${HOME}/.local/share/nvim/mason/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/shitty-ctftools/bin:$HOME/.local/share/nvim/mason/bin"
 
 export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
@@ -21,7 +21,7 @@ export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-name
 export DEFAULT_CREDS='/usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt'
 
 export VISUAL=vim
-export EDITOR="${VISUAL}"
+export EDITOR="$VISUAL"
 
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
 export FZF_CTRL_T_COMMAND="fd . -H -E '.git' --type f --color=always"
@@ -53,7 +53,7 @@ zstyle ':completion:*' group-name '' # Separate suggestions into their respectiv
 zstyle ':completion:*' list-dirs-first true # Directories first
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' use-cache on # Cache for speed
-zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/zcompcache" # Cache file location
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache" # Cache file location
 
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d :3 --%f' # Format for completion category
 zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f' # Format for when no match
@@ -79,15 +79,24 @@ bindkey "^[^?" backward-delete-char
 
 KEYTIMEOUT=10 # For speeding up esc menu completion cancelation
 
-source "${ZDOTDIR}/config.d/arch-debian.zsh"
-source "${ZDOTDIR}/config.d/highlights.zsh"
-source "${ZDOTDIR}/config.d/man.zsh"
-source "${ZDOTDIR}/config.d/fzf.zsh"
-source "${ZDOTDIR}/config.d/aliases.zsh"
+source "$ZDOTDIR/config.d/arch-debian.zsh"
+source "$ZDOTDIR/config.d/highlights.zsh"
+source "$ZDOTDIR/config.d/man.zsh"
+source "$ZDOTDIR/config.d/fzf.zsh"
+source "$ZDOTDIR/config.d/aliases.zsh"
 
 source <(fzf --zsh)
 
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
+
+[[ -n "$WT_SESSION" ]] && {
+  chpwd() {
+    echo -en '\e]9;9;"'
+    wslpath -w "$PWD" | tr -d '\n'
+    echo -en '"\x07'
+  }
+}
+
 
 eval "$(starship init zsh)"
