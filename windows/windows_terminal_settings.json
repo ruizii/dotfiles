@@ -51,34 +51,34 @@
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "disableAnimations": true,
-    "experimental.detectURLs": false,
+    "experimental.detectURLs": true,
     "initialCols": 153,
     "initialRows": 44,
     "keybindings": 
     [
         {
-            "id": "Terminal.ToggleFullscreen",
-            "keys": "ctrl+shift+f"
+            "id": null,
+            "keys": "alt+right"
         },
         {
             "id": "Terminal.MoveFocusLeft",
             "keys": "ctrl+h"
         },
         {
-            "id": null,
-            "keys": "alt+right"
+            "id": "Terminal.ToggleFullscreen",
+            "keys": "ctrl+shift+f"
         },
         {
-            "id": "Terminal.MoveFocusDown",
-            "keys": "ctrl+j"
+            "id": null,
+            "keys": "alt+down"
         },
         {
             "id": "User.duplicateTab",
             "keys": "ctrl+shift+t"
         },
         {
-            "id": null,
-            "keys": "alt+down"
+            "id": "Terminal.MoveFocusDown",
+            "keys": "ctrl+j"
         },
         {
             "id": null,
@@ -113,6 +113,7 @@
             "keys": "ctrl+shift+e"
         }
     ],
+    "launchMode": "maximized",
     "newTabMenu": 
     [
         {
@@ -134,7 +135,11 @@
                 "size": 13,
                 "weight": 374
             },
-            "opacity": 0
+            "opacity": 0,
+            "padding": "8,0,8,0",
+            "scrollbarState": "visible",
+            "suppressApplicationTitle": true,
+            "useAcrylic": false
         },
         "list": 
         [
