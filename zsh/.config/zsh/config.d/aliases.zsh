@@ -20,6 +20,7 @@ alias dockershellsh='docker run --rm -i -t --entrypoint=/bin/bash'
 alias curl='curlie -v'
 alias rmtest='cd ~ && rm -rf ./test/'
 alias nvconfig="cd $HOME/.config/nvim && nvim"
+alias scan="shitty-scanner.sh $@"
 alias zshconfig="cd $ZDOTDIR && nvim"
 alias gdb='gdb -q'
 alias less='bat'
