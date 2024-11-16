@@ -1,0 +1,17 @@
+right_format = """$time"""
+
+[line_break]
+disabled = true
+
+[lua]
+detect_folders = []
+
+[character]
+success_symbol = "[>](blue)"
+error_symbol = "[>](red)"
+format = "[>](cyan)$symbol "
+
+[time]
+disabled = false
+time_format = "%Y-%m-%d %T"
+format = "[$time]($style)"
