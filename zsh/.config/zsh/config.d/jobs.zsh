@@ -13,11 +13,3 @@ bg() {
         builtin bg %"$@"
     fi
 }
-
-disown() {
-    if [[ $# -eq 1 && $1 = - ]]; then
-        builtin disown %-
-    else
-        builtin disown %"$@"
-    fi
-}
