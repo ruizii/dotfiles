@@ -84,7 +84,6 @@ source "$ZDOTDIR/config.d/highlights.zsh"
 source "$ZDOTDIR/config.d/man.zsh"
 source "$ZDOTDIR/config.d/fzf.zsh"
 source "$ZDOTDIR/config.d/aliases.zsh"
-source "$ZDOTDIR/config.d/jobs.zsh"
 
 source <(fzf --zsh)
 
