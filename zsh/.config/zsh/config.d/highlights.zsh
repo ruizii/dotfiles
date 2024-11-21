@@ -4,7 +4,7 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green
 ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green
 ZSH_HIGHLIGHT_STYLES[path]=bold
@@ -32,7 +32,7 @@ ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[comment]=fg=white,bold
 ZSH_HIGHLIGHT_STYLES[named-fd]=none
 ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
 ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold

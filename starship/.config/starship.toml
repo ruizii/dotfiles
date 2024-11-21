@@ -7,7 +7,7 @@ disabled = true
 detect_folders = []
 
 [character]
-success_symbol = "[>](blue)"
+success_symbol = "[>](cyan)"
 error_symbol = "[>](red)"
 format = "[>](cyan)$symbol "
 
