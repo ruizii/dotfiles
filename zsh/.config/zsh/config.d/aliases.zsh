@@ -8,6 +8,7 @@ fi
 alias ls='eza --icons always'
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias history='history -i 0'
+alias obsidian='cd /mnt/e/vault/ && ls -T --level=1'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias glow='glow -p'
