@@ -19,6 +19,7 @@ export METHODS='/usr/share/seclists/Fuzzing/http-request-methods.txt'
 export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.txt'
 export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
 export DEFAULT_CREDS="$HOME/Documents/Wordlists/default-creds.txt"
+export DIRS_DEFAULT="$HOME/Documents/Wordlists/first-dirs.txt"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
