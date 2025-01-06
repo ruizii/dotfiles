@@ -9,6 +9,8 @@ alias ls='eza --icons always'
 alias ai='tgpt -i'
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
+alias linpeas='echo '' && eza -T /usr/share/peass-ng/linux && echo '' && python -m http.server -d /usr/share/peass-ng/linux/'
+alias winpeas='echo '' && eza -T /usr/share/peass-ng/windows && echo '' && python -m http.server -d /usr/share/peass-ng/windows/'
 alias history='history -i 0'
 alias obsidian='cd /mnt/e/vault/ && ls -T --level=1'
 alias icat='kitty +kitten icat'
