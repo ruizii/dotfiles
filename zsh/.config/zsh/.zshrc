@@ -34,6 +34,9 @@ if uname -r | grep -q "microsoft"; then
     export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
 fi
 
+if [[ -f "$HOME/.env" ]]; then
+    source "$HOME/.env"
+fi
 
 zmodload zsh/complist
 
