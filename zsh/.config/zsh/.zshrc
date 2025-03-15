@@ -46,6 +46,7 @@ setopt numericglobsort     # sort filenames numerically when it makes sense
 setopt interactive_comments
 setopt promptsubst         # enable command substitution in prompt
 setopt SHARE_HISTORY
+setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_SAVE_NO_DUPS
 setopt hist_ignore_space      # ignore commands that start with space
