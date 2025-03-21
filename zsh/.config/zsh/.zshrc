@@ -9,17 +9,15 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/shar
 
 export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
-export DIRS_COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
+export COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
 export FILES='/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt'
-export SUBDOMAINS='/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt'
+export SUBDOMAINS='/usr/share/seclists/Discovery/DNS/namelist.txt'
 export API_ENDPOINTS='/usr/share/seclists/Discovery/Web-Content/common-api-endpoints-mazen160.txt'
 export ROCKYOU='/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt'
 export USERNAMES='/usr/share/seclists/Usernames/xato-net-10-million-usernames.txt'
 export METHODS='/usr/share/seclists/Fuzzing/http-request-methods.txt'
 export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.txt'
 export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
-export DEFAULT_CREDS="$HOME/Documents/Wordlists/default-creds.txt"
-export DIRS_DEFAULT="$HOME/Documents/Wordlists/first-dirs.txt"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
