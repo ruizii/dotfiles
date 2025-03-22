@@ -36,6 +36,10 @@ if [[ -f "$HOME/.env" ]]; then
     source "$HOME/.env"
 fi
 
+if [[ -f "$HOME/.local_alias" ]]; then
+    source "$HOME/.local_alias"
+fi
+
 zmodload zsh/complist
 
 autoload -Uz compinit; compinit
