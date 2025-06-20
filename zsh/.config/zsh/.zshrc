@@ -5,7 +5,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export BAT_THEME="ansi"
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/shitty-ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.ghcup/bin/:$HOME/.local/share/zig"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/shitty-ctftools/bin:$HOME/.local/share/nvim/mason/bin"
 
 export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
