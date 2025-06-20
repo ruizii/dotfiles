@@ -28,4 +28,3 @@ alias gdb='gdb -q'
 alias less='bat'
 alias cat='bat -pp'
 alias xd='hexyl --border none'
-alias hydra="$HOME/bin/hydra"
