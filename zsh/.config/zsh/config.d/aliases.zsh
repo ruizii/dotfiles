@@ -23,6 +23,7 @@ alias curl='curlie -v'
 alias rmtest='cd ~ && rm -rf ./test/'
 alias nvconfig="cd $HOME/.config/nvim && nvim"
 alias scan="shitty-scanner.sh $@"
+alias listen="shitty-revshell-listener.sh $@"
 alias zshconfig="cd $ZDOTDIR && nvim"
 alias gdb='gdb -q'
 alias less='bat'
