@@ -5,7 +5,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export BAT_THEME="ansi"
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.bun/bin"
 
 export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
@@ -112,3 +112,6 @@ bindkey '^I' $fzf_default_completion
 
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/asdf/.bun/_bun" ] && source "/home/asdf/.bun/_bun"
