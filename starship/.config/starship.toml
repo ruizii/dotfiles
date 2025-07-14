@@ -19,3 +19,6 @@ disabled = false
 time_format = "%Y-%m-%d %T"
 style = 'fg:blue'
 format = "[$time]($style)"
+
+[aws]
+disabled = true
