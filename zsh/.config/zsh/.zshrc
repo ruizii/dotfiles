@@ -72,7 +72,7 @@ zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f' # Fo
 zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} "ma=38;5;253;48;5;23" # Colorize suggestions
 zstyle ':completion:*' squeeze-slashes true # // = /
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s # Message for when paging
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Smart case completion
 zstyle ':completion::complete:*' gain-privileges 1 # Completions in sudo
 
 # Prettier completion for processes
