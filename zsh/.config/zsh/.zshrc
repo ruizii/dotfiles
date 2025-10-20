@@ -18,6 +18,7 @@ export USERNAMES='/usr/share/seclists/Usernames/xato-net-10-million-usernames.tx
 export METHODS='/usr/share/seclists/Fuzzing/http-request-methods.txt'
 export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.txt'
 export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
+export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
 export VISUAL=vim
 export EDITOR="$VISUAL"

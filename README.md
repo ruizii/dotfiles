@@ -1,8 +1,8 @@
 # dotfiles
 
 ```bash
-stow kitty zsh ideavim format starship
+stow kitty zsh format starship
 
 # uninstall
-stow -D kitty zsh ideavim format starship
+stow -D kitty zsh format starship
 ```
