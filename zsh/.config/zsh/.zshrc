@@ -5,7 +5,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export BAT_THEME="ansi"
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.bun/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
 
 export DIRS='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt'
 export DIRS_SMALL='/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt'
@@ -22,6 +22,7 @@ export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export BLOODHOUND_PORT=8888
 
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
 export FZF_CTRL_T_COMMAND="fd . -H -E '.git' --type f --color=always"
@@ -82,6 +83,9 @@ zstyle ':completion:*:*:*:*:processes' menu select
 zstyle ':completion:*:*:*:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
+PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{%(#.red.blue)}%n@%m%b%F{reset}:%B%F{%(#.blue.green)}%~%b%F{reset}%(#.#.$) '
+RPROMPT=
+
 zmodload zsh/complist
 bindkey -e
 bindkey -s '^[' ''
@@ -112,7 +116,4 @@ bindkey '^I' $fzf_default_completion
 }
 
 
-eval "$(starship init zsh)"
-
-# bun completions
-[ -s "/home/asdf/.bun/_bun" ] && source "/home/asdf/.bun/_bun"
+# eval "$(starship init zsh)"
