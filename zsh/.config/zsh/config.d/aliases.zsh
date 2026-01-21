@@ -10,6 +10,7 @@ alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias history='history -i 0'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
+alias diff='difft'
 alias glow='glow -p'
 alias nc='ncat'
 alias generate-leetspeak='hashcat --force --stdout -r /usr/share/hashcat/rules/leetspeak.rule'
