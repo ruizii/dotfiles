@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export HISTFILE="$ZDOTDIR/.zhistory"
@@ -82,10 +89,6 @@ zstyle ':completion:*:*:*:*:processes' menu select
 zstyle ':completion:*:*:*:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
-PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{%(#.red.blue)}%n@%m%b%F{reset}:%B%F{%(#.blue.green)}%~%b%F{reset}%(#.#.$) '
-RPROMPT=
-
-zmodload zsh/complist
 bindkey -e
 bindkey -s '^[' ''
 bindkey -M menuselect '^[' undo # Esc cancels completion menu
@@ -116,3 +119,7 @@ bindkey '^I' $fzf_default_completion
 
 
 # eval "$(starship init zsh)"
+source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
