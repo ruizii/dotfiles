@@ -5,6 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export HISTFILE="$ZDOTDIR/.zhistory"
@@ -122,8 +127,6 @@ bindkey '^I' $fzf_default_completion
   }
 }
 
-
-# eval "$(starship init zsh)"
 source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
