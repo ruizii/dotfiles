@@ -1,3 +1,5 @@
+FAST_THEME_NAME=""
+
 FAST_HIGHLIGHT_STYLES[default]=fg=white
 FAST_HIGHLIGHT_STYLES[unknown-token]=none
 FAST_HIGHLIGHT_STYLES[reserved-word]=fg=magenta
