@@ -50,3 +50,4 @@ FAST_HIGHLIGHT_STYLES[command]=fg=blue
 FAST_HIGHLIGHT_STYLES[hashed-command]=fg=blue
 FAST_HIGHLIGHT_STYLES[number]=fg=cyan
 FAST_HIGHLIGHT_STYLES[variable]=fg=cyan
+FAST_HIGHLIGHT_STYLES[incorrect-subtle]=none
