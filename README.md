@@ -1,8 +1,9 @@
 # dotfiles
 
 ```bash
-stow kitty zsh format starship
+# Install
+stow kitty zsh format
 
 # uninstall
-stow -D kitty zsh format starship
+stow -D kitty zsh format
 ```
