@@ -38,7 +38,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history match_prev_cmd)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-if [[ -r /proc/version ]] && [[ $(</proc/version) == [Mm]icrosoft ]]; then
+if [[ -r /proc/version ]] && [[ $(</proc/version) == *icrosoft* ]]; then
     export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
 fi
 
