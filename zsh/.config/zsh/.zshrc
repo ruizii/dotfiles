@@ -101,8 +101,7 @@ bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
 bindkey "^[^?" backward-delete-char
 
-# 10ms — fast enough to not feel sluggish exiting menus, slow enough for
-# multi-key sequences (was 100ms)
+# 10ms
 KEYTIMEOUT=1
 
 source "$ZDOTDIR/config.d/man.zsh"
