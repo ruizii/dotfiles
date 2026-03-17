@@ -22,5 +22,4 @@ alias zshconfig="cd $ZDOTDIR && nvim"
 alias gdb='gdb -q'
 alias less='bat'
 alias cat='bat -pp'
-alias xd='hexyl --border none'
 alias grep='grep --color=auto'
