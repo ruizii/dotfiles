@@ -116,11 +116,12 @@ bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
 [[ -n "$WT_SESSION" ]] && {
-  chpwd() {
-    echo -en '\e]9;9;"'
-    wslpath -w "$PWD" | tr -d '\n'
-    echo -en '"\x07'
+  _wt_prompt() {
+    printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+    printf '\033[5 q'
   }
+
+  precmd_functions+=(_wt_prompt)
 }
 
 source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
