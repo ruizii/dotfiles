@@ -25,7 +25,7 @@ export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-name
 export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
 # Path
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/go/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
 
 # FZF Config
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
