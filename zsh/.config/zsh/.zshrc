@@ -24,8 +24,11 @@ export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.
 export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
 export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
 # Path
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
+export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
 
 # FZF Config
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
@@ -128,3 +131,4 @@ source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run p10k configure or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
