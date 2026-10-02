@@ -10,41 +10,23 @@
         "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
-        "key": "ctrl+alt+s",
-        "command": "workbench.action.openSettings"
+        "key": "ctrl+h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "auxiliaryBarFocus"
     },
     {
-        "key": "ctrl+,",
-        "command": "-workbench.action.openSettings"
+        "key": "ctrl+j",
+        "command": "workbench.action.focusPanel"
     },
     {
-        "key": "f2",
-        "command": "-editor.action.rename",
-        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "f2",
-        "command": "editor.debug.action.toggleBreakpoint",
-        "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
-    },
-    {
-        "key": "f9",
-        "command": "-editor.debug.action.toggleBreakpoint",
-        "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
-    },
-    {
-        "key": "ctrl+K",
+        "key": "ctrl+k",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "panelFocus"
     },
     {
-        "key": "ctrl+L",
+        "key": "ctrl+l",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "sideBarFocus"
-    },
-    {
-        "key": "ctrl+J",
-        "command": "workbench.action.focusPanel",
     },
     {
         "key": "ctrl+shift+a",
@@ -56,9 +38,54 @@
         "command": "explorer.newFile"
     },
     {
+        "key": "ctrl+]",
+        "command": "workbench.action.nextSideBarView",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.previousSideBarView",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "workbench.action.nextPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.previousPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "f2",
+        "command": "editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+f2",
+        "command": "workbench.action.debug.restart",
+        "when": "inDebugMode"
+    },
+    {
         "key": "f7",
-        "command": "workbench.action.debug.stepInto",
-        "when": "debugState != 'inactive'"
+        "command": "editor.debug.action.stepInto",
+        "when": "editorTextFocus && inDebugMode"
+    },
+    {
+        "key": "f8",
+        "command": "editor.debug.action.stepOver",
+        "when": "editorTextFocus && inDebugMode"
+    },
+    {
+        "key": "f9",
+        "command": "workbench.action.debug.continue",
+        "when": "inDebugMode"
+    },
+    {
+        "key": "ctrl+f9",
+        "command": "editor.debug.action.stepOut",
+        "when": "editorTextFocus && inDebugMode"
     },
     {
         "key": "f11",
@@ -66,24 +93,9 @@
         "when": "debugState != 'inactive'"
     },
     {
-        "key": "f8",
-        "command": "workbench.action.debug.stepOver",
-        "when": "debugState == 'stopped'"
-    },
-    {
         "key": "f10",
         "command": "-workbench.action.debug.stepOver",
         "when": "debugState == 'stopped'"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.nextPanelView",
-        "when": "panelFocus"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.previousPanelView",
-        "when": "panelFocus"
     },
     {
         "key": "ctrl+tab",
@@ -104,32 +116,28 @@
         "command": "workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+.",
-        "command": "-problems.action.showQuickFixes",
-        "when": "problemFocus"
+        "key": "f12",
+        "command": "workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
     },
     {
-        "key": "alt+enter",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+        "key": "ctrl+k z",
+        "command": "-workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
     },
     {
-        "key": "ctrl+.",
-        "command": "-editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
     },
     {
-        "key": "ctrl+y",
-        "command": "-redo"
+        "key": "f12",
+        "command": "-editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols"
     },
     {
-        "key": "ctrl+y",
-        "command": "acceptSelectedSuggestion",
-        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "tab",
-        "command": "-acceptSelectedSuggestion",
-        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-    },
+        "key": "f12",
+        "command": "-goToNextReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    }
 ]
