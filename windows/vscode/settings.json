@@ -127,5 +127,9 @@
     "vim.hlsearch": true,
     "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font Mono'",
     "terminal.integrated.fontWeightBold": "normal",
-    "editor.acceptSuggestionOnCommitCharacter": false
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.tabWidth": 4
 }
