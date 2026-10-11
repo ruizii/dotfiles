@@ -112,6 +112,7 @@ source "$ZDOTDIR/config.d/fzf.zsh"
 source "$ZDOTDIR/config.d/aliases.zsh"
 source "$ZDOTDIR/config.d/arch-debian.zsh"
 source "$ZDOTDIR/config.d/highlights.zsh"
+source "$ZDOTDIR/config.d/htb.zsh"
 
 # Re-bind fzf keys after compinit and arch-debian.zsh (which loads the
 # completion system plugins) so these take precedence
