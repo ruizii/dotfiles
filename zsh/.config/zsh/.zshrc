@@ -28,7 +28,7 @@ export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # Path
-export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin"
+export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.opencode/bin"
 
 # FZF Config
 export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
