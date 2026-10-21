@@ -12,16 +12,15 @@ export BLOODHOUND_PORT=8888
 export BAT_THEME="ansi"
 
 # Wordlists
-export DIRS='/usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt'
+export DIRS='/usr/share/wordlists/assetnote/httparchive_directories.txt'
 export COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
-export FILES='/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt'
-export SUBDOMAINS='/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt'
-export API_ENDPOINTS='/usr/share/seclists/Discovery/Web-Content/common-api-endpoints-mazen160.txt'
+export SUBDOMAINS='/usr/share/wordlists/assetnote/httparchive_subdomains.txt'
+export API_ENDPOINTS='/usr/share/wordlists/assetnote/httparchive_apiroutes.txt'
 export ROCKYOU='/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt'
 export USERNAMES='/usr/share/seclists/Usernames/xato-net-10-million-usernames.txt'
 export METHODS='/usr/share/seclists/Fuzzing/http-request-methods.txt'
 export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.txt'
-export PARAMETERS='/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt'
+export PARAMETERS='/usr/share/wordlists/assetnote/httparchive_parameters.txt'
 export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
 # pnpm
