@@ -12,15 +12,15 @@ export BLOODHOUND_PORT=8888
 export BAT_THEME="ansi"
 
 # Wordlists
-export DIRS='/usr/share/wordlists/assetnote/httparchive_directories.txt'
+export DIRS='/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt'
 export COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
-export SUBDOMAINS='/usr/share/wordlists/assetnote/httparchive_subdomains.txt'
-export API_ROUTES='/usr/share/wordlists/assetnote/httparchive_apiroutes.txt'
+export SUBDOMAINS='/usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt'
+export API_ROUTES='/usr/share/wordlists/seclists/Discovery/Web-Content/api/api-endpoints-res.txt'
 export ROCKYOU='/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt'
 export USERNAMES='/usr/share/seclists/Usernames/xato-net-10-million-usernames.txt'
 export METHODS='/usr/share/seclists/Fuzzing/http-request-methods.txt'
 export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.txt'
-export PARAMETERS='/usr/share/wordlists/assetnote/httparchive_parameters.txt'
+export PARAMETERS='/usr/share/wordlists/seclists/Discovery/Web-Content/burp-parameter-names.txt'
 export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
 # pnpm
