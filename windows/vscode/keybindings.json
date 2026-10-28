@@ -69,12 +69,12 @@
     },
     {
         "key": "f7",
-        "command": "editor.debug.action.stepInto",
+        "command": "workbench.action.debug.stepInto",
         "when": "editorTextFocus && inDebugMode"
     },
     {
         "key": "f8",
-        "command": "editor.debug.action.stepOver",
+        "command": "workbench.action.debug.stepOver",
         "when": "editorTextFocus && inDebugMode"
     },
     {
@@ -84,7 +84,7 @@
     },
     {
         "key": "ctrl+f9",
-        "command": "editor.debug.action.stepOut",
+        "command": "workbench.action.debug.stepOut",
         "when": "editorTextFocus && inDebugMode"
     },
     {
@@ -139,5 +139,5 @@
         "key": "f12",
         "command": "-goToNextReference",
         "when": "inReferenceSearchEditor || referenceSearchVisible"
-    }
+    },
 ]
