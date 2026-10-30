@@ -79,22 +79,23 @@ zstyle ':completion:*' rehash true # Update changes in path automatically
 zstyle ':completion:*' verbose true # Verbose
 zstyle ':completion:*' group-name '' # Separate suggestions into their respective categories
 zstyle ':completion:*' list-dirs-first true # Directories first
-zstyle ':completion:*' completer _complete
+zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' use-cache on # Cache for speed
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache" # Cache file location
-zstyle ':completion:::::descriptions' format '%F{blue}-- %d :3 --%f'
+zstyle ':completion:*:descriptions' format '%F{blue}-- %d :3 --%f'
 zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f'
 zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} "ma=38;5;253;48;5;23"
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
 
 # Processes completion
-zstyle ':completion:::::processes' force-list always
-zstyle ':completion:::::processes' menu select
-zstyle ':completion:::::processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:::::processes' command "ps -u $USER -o pid,user,args -w -w"
+zstyle ':completion:*:processes' force-list always
+zstyle ':completion:*:processes' menu select
+zstyle ':completion:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
 bindkey -e
 bindkey -s '^[' ''
@@ -103,8 +104,8 @@ bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
 bindkey "^[^?" backward-delete-char
 
-# 10ms
-KEYTIMEOUT=1
+# 20ms
+KEYTIMEOUT=2
 
 source "$ZDOTDIR/config.d/man.zsh"
 source "$ZDOTDIR/config.d/fzf.zsh"
@@ -131,4 +132,3 @@ source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run p10k configure or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
