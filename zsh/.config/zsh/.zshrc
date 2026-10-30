@@ -40,7 +40,7 @@ export FZF_CTRL_T_COMMAND=""
 # Autosuggestions Config
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(valid_history completion)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 if [[ -r /proc/version ]] && [[ $(</proc/version) == *icrosoft* ]]; then
