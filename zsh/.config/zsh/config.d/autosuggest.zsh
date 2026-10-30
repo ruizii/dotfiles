@@ -8,7 +8,8 @@
 # Path arguments are recorded when you press Enter and stored in a side file,
 # since zsh history doesn't keep that information.
 
-zmodload zsh/system zsh/stat 2>/dev/null
+zmodload zsh/system 2>/dev/null
+zmodload -F zsh/stat b:zstat 2>/dev/null   # only zstat, so the system stat command keeps working
 autoload -Uz add-zsh-hook
 
 typeset -g  _zas_file=${_zas_file:-${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history_paths}
