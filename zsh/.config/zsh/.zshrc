@@ -113,6 +113,7 @@ KEYTIMEOUT=2
 
 source "$ZDOTDIR/config.d/man.zsh"
 source "$ZDOTDIR/config.d/aliases.zsh"
+source "$ZDOTDIR/config.d/autosuggest.zsh"
 source "$ZDOTDIR/config.d/arch-debian.zsh"
 source "$ZDOTDIR/config.d/highlights.zsh"
 source "$ZDOTDIR/config.d/htb.zsh"
