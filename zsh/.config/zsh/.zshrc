@@ -15,7 +15,6 @@ HISTFILE="$ZDOTDIR/.zhistory"
 HISTSIZE=10000
 SAVEHIST=10000
 
-
 # Wordlists
 export DIRS='/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt'
 export COMMON='/usr/share/seclists/Discovery/Web-Content/common.txt'
