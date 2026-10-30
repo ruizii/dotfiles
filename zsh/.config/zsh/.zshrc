@@ -3,13 +3,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export XDG_CACHE_HOME="$HOME/.cache"
-export HISTFILE="$ZDOTDIR/.zhistory"
-export HISTSIZE=10000
-export SAVEHIST=10000
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export BLOODHOUND_PORT=8888
 export BAT_THEME="ansi"
+
+# History not exported
+HISTFILE="$ZDOTDIR/.zhistory"
+HISTSIZE=10000
+SAVEHIST=10000
+
 
 # Wordlists
 export DIRS='/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt'
