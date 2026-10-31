@@ -6,5 +6,5 @@ settarget() {
 
 cleartarget() { rm -f ~/.target_ip; unset ip; }
 
-[ -f ~/.target_ip ] && export ip="$(cat ~/.target_ip)"
+[ -f ~/.target_ip ] && export ip="$(<~/.target_ip)"
 

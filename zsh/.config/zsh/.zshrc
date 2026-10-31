@@ -89,7 +89,7 @@ zstyle ':completion:*:descriptions' format '%F{blue}-- %d :3 --%f'
 zstyle ':completion:*:warnings' format '%F{red}-- No matches found :c --%f'
 zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS} "ma=38;5;253;48;5;23"
 zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
@@ -131,5 +131,5 @@ bindkey '^I' $fzf_default_completion
 
 source "$HOME/Code/repos/powerlevel10k/powerlevel10k.zsh-theme"
 
-# To customize prompt, run p10k configure or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# To customize prompt, run p10k configure or edit $ZDOTDIR/.p10k.zsh.
+[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"

@@ -14,7 +14,7 @@ autoload -Uz add-zsh-hook
 
 typeset -g  _zas_file=${_zas_file:-${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history_paths}
 typeset -gA _zas_paths   # normalized command -> NUL-separated required paths
-typeset -gi _zas_offset=0
+typeset -gi _zas_offset=0 _zas_inode=0
 
 # Normalize a command line so it matches regardless of extra whitespace
 # (HIST_REDUCE_BLANKS changes what's stored in history)
@@ -31,17 +31,23 @@ _zas_merge() {
 _zas_sync() {
   emulate -L zsh
   [[ -r $_zas_file ]] || return 0
-  local -a st; zstat -A st +size -- $_zas_file 2>/dev/null || return 0
-  local -i size=$st[1]
-  (( size == _zas_offset )) && return 0
-  (( size < _zas_offset )) && { _zas_paths=(); _zas_offset=0 }   # file was compacted
-
   local fd chunk data
   exec {fd}<$_zas_file || return 0
+  # stat the open fd, so size and inode belong to the file we read
+  local -A st; zstat -H st -f $fd 2>/dev/null || { exec {fd}<&-; return 0 }
+  if (( st[inode] != _zas_inode || st[size] < _zas_offset )); then
+    _zas_paths=(); _zas_offset=0; _zas_inode=st[inode]   # file was compacted
+  fi
+  if (( st[size] == _zas_offset )); then exec {fd}<&-; return 0; fi
+
   sysseek -u $fd $_zas_offset
   while sysread -i $fd chunk; do data+=$chunk; done
   exec {fd}<&-
-  _zas_offset=size
+
+  # Only take whole lines; a line still being written is read next time
+  [[ $data == *$'\n'* ]] || return 0
+  data=${data%$'\n'*}
+  () { setopt LOCAL_OPTIONS NO_MULTIBYTE; (( _zas_offset += $#data + 1 )) }   # bytes, not chars
 
   local line; local -a f
   for line in ${(f)data}; do
@@ -62,7 +68,8 @@ _zas_record() {
   for w in $words; do
     if (( skip_next )); then skip_next=0; continue; fi
     case $w in
-      (\;|\||\|\||\&\&|\&|\|\&|\&\||\&!) expect_cmd=1; continue ;;     # separators
+      (\;|\||\|\||\&\&|\&|\|\&|\&\||\&!) expect_cmd=1; continue ;;      # separators
+      ([\<\>=]\(*) continue ;;                                          # process substitution
       ([0-9]#(\<|\>)*|\&\>*) skip_next=1; continue ;;                   # redirections
     esac
     if (( expect_cmd )); then
@@ -78,7 +85,11 @@ _zas_record() {
   _zas_key "$line"
   _zas_merge "$REPLY" "${(@)found}"
   [[ -d ${_zas_file:h} ]] || mkdir -p ${_zas_file:h}
+  local lock
+  [[ -e $_zas_file.lock ]] || : >> $_zas_file.lock         # flock won't create it
+  zsystem flock -t 1 -f lock $_zas_file.lock 2>/dev/null   # wait out a compaction
   print -r -- "${(q+)REPLY}" "${(@q+)found}" >> $_zas_file
+  [[ -n $lock ]] && zsystem flock -u $lock
   return 0
 }
 
@@ -140,15 +151,20 @@ _zsh_autosuggest_strategy_valid_history() {
 
 # Load recorded paths, compacting the file when it has many stale duplicates
 _zas_sync
-if [[ -f $_zas_file ]] && (( ${#${(f)"$(<$_zas_file)"}} > 2 * $#_zas_paths + 200 )); then
+# (skipped if another shell is already compacting)
+if [[ -f $_zas_file ]] && (( ${#${(f)"$(<$_zas_file)"}} > 2 * $#_zas_paths + 200 )) \
+   && { [[ -e $_zas_file.lock ]] || : >> $_zas_file.lock } \
+   && zsystem flock -t 0 -f _zas_lock $_zas_file.lock 2>/dev/null; then
+  _zas_sync   # pick up anything appended before we got the lock
   local _k
   {
     for _k in ${(k)_zas_paths}; do
       print -r -- "${(q+)_k}" "${(@q+)${(ps:\0:)_zas_paths[$_k]}}"
     done
   } > $_zas_file.$$ && mv -f $_zas_file.$$ $_zas_file
-  _zas_offset=0; _zas_paths=(); _zas_sync
-  unset _k
+  zsystem flock -u $_zas_lock
+  _zas_sync   # new inode, so this reloads from the compacted file
+  unset _k _zas_lock
 fi
 
 add-zsh-hook zshaddhistory _zas_record
