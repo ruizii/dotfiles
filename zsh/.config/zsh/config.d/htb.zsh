@@ -1,6 +1,6 @@
 settarget() {
   echo "$1" > ~/.target_ip
-  export ip="$1"
+  export TARGET="$1"
   echo "[+] Target set: $1"
 }
 
