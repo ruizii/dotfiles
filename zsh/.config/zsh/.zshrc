@@ -119,7 +119,11 @@ bindkey '^I' $fzf_default_completion
 
 [[ -n "$WT_SESSION" ]] && {
   _wt_prompt() {
-    printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+    # Only run wslpath when the directory changed since the last prompt
+    if [[ $PWD != $_wt_last_pwd ]]; then
+      _wt_last_pwd=$PWD
+      printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+    fi
     printf '\033[5 q'
   }
 
