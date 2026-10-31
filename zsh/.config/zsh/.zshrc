@@ -105,7 +105,6 @@ bindkey -s '^[' ''
 bindkey -M menuselect '^[' undo # Esc cancels completion menu
 bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
-bindkey "^[^?" backward-delete-char
 
 # 20ms
 KEYTIMEOUT=2
