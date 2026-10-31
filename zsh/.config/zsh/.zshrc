@@ -12,8 +12,8 @@ export BAT_THEME="ansi"
 
 # History not exported
 HISTFILE="$ZDOTDIR/.zhistory"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 
 # Wordlists
 export DIRS='/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt'
