@@ -91,6 +91,41 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' '+r:|[._-]=* r:|=*' '+l:|=* 
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
 
+# Fish-style descriptions: "--all  (do not ignore)" instead of "--all  -- do not ignore".
+# Rewrites the display array that _describe (-d name) and _git (-ld name) pass to compadd,
+# and colours the text yellow only in the groups it rewrote (not e.g. "(sd-pam)" in kill).
+compadd() {
+  setopt LOCAL_OPTIONS EXTENDED_GLOB
+  local -i _fd_i _fd_j _fd_changed; local _fd_arr _fd_grp _fd_next; local -a _fd_d
+  for (( _fd_i = 1; _fd_i < $#; _fd_i++ )); do
+    _fd_next=$@[_fd_i+1]
+    case $@[_fd_i] in
+      (-|--) break ;;                                    # the rest are matches, not options
+      (-[a-zA-Z0-9]#[JV]) _fd_grp=$_fd_next ;;           # group name
+      (-[a-zA-Z0-9]#d) [[ ${(Pt)_fd_next} == array* ]] && _fd_arr=$_fd_next ;;
+    esac
+  done
+  if [[ -n $_fd_arr ]]; then
+    _fd_d=("${(@P)_fd_arr}")
+    for (( _fd_j = 1; _fd_j <= $#_fd_d; _fd_j++ )); do
+      case $_fd_d[_fd_j] in
+        # Grouped options (-a --all) list the description as its own padded entry
+        ('-- '*) [[ $_fd_d[_fd_j] == (#b)--\ (*[^ ])( #) ]] || continue
+                 _fd_d[_fd_j]="(${match[1]})${match[2]} " ;;
+        (*' -- '*) _fd_d[_fd_j]=${_fd_d[_fd_j]/(#b) -- (*)/ (${match[1]})} ;;
+        (*) continue ;;
+      esac
+      _fd_changed=1
+    done
+    if (( _fd_changed )); then
+      set -A $_fd_arr "${_fd_d[@]}"
+      [[ -n $_fd_grp ]] && (( $+_comp_colors )) &&
+        _comp_colors+=("($_fd_grp)=(#b)(|[^\(]# )(\()(*)(\))( #)=0=0=0=33=0=0")
+    fi
+  fi
+  builtin compadd "$@"
+}
+
 # Processes completion
 zstyle ':completion:*:processes' force-list always
 zstyle ':completion:*:processes' menu select
@@ -98,7 +133,10 @@ zstyle ':completion:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;3
 zstyle ':completion:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
 bindkey -e
-bindkey -s '^[' ''
+# Esc only hides a completion list left on screen (like fish), otherwise does nothing
+_esc_hide_list() { zle -R -c }
+zle -N _esc_hide_list
+bindkey '^[' _esc_hide_list
 bindkey -M menuselect '^[' undo # Esc cancels completion menu
 bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
