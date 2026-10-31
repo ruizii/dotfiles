@@ -6,7 +6,6 @@ else
     alias copy='wl-copy'
 fi
 alias ls='eza --icons always'
-alias history='history -i 0'
 alias icat='kitty +kitten icat'
 alias ip='ip --color=auto'
 alias diff='difft'
@@ -25,3 +24,4 @@ alias cat='bat -pp'
 alias xd='hexyl --border none'
 alias grep='grep --color=auto'
 alias cip='tr -d "\n" < ~/.target_ip | copy && echo "[+] Copied $(<~/.target_ip)"'
+

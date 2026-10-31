@@ -115,6 +115,7 @@ source "$ZDOTDIR/config.d/aliases.zsh"
 source "$ZDOTDIR/config.d/autosuggest.zsh"
 source "$ZDOTDIR/config.d/arch-debian.zsh"
 source "$ZDOTDIR/config.d/highlights.zsh"
+source "$ZDOTDIR/config.d/history.zsh"
 source "$ZDOTDIR/config.d/htb.zsh"
 
 # Give Tab back to zsh completion instead of fzf's
