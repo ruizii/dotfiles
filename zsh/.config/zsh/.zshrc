@@ -131,7 +131,7 @@ compadd() {
     if (( _fd_changed )); then
       set -A $_fd_arr "${_fd_d[@]}"
       [[ -n $_fd_grp ]] && (( $+_comp_colors )) &&
-        _comp_colors+=("($_fd_grp)=(#b)(|[^\(]# )(\()(*)(\))( #)=0=0=0=33=0=0")
+        _comp_colors+=("($_fd_grp)=(#b)(|[^\(]# )(\()(*)(\))( #)=0=0=0=3;33=0=0")   # 3;33 = italic yellow
     fi
   fi
   builtin compadd "$@"
