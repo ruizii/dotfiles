@@ -63,7 +63,7 @@ source <(fzf --zsh)
 
 zmodload zsh/complist
 
-fpath=(~/Code/repos/zsh-completions/src ~/Code/repos/zshcompletions $fpath)
+fpath=(~/Code/repos/completions $fpath)
 
 autoload -Uz compinit
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
