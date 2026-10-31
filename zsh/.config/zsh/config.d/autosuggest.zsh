@@ -84,11 +84,12 @@ _zas_record() {
 
   _zas_key "$line"
   _zas_merge "$REPLY" "${(@)found}"
-  [[ -d ${_zas_file:h} ]] || mkdir -p ${_zas_file:h}
+  # If the state folder can't be written (read-only, full disk), skip quietly
+  [[ -d ${_zas_file:h} ]] || mkdir -p ${_zas_file:h} 2>/dev/null || return 0
   local lock
-  [[ -e $_zas_file.lock ]] || : >> $_zas_file.lock         # flock won't create it
-  zsystem flock -t 1 -f lock $_zas_file.lock 2>/dev/null   # wait out a compaction
-  print -r -- "${(q+)REPLY}" "${(@q+)found}" >> $_zas_file
+  [[ -e $_zas_file.lock ]] || : 2>/dev/null >> $_zas_file.lock   # flock won't create it
+  zsystem flock -t 1 -f lock $_zas_file.lock 2>/dev/null         # wait out a compaction
+  print -r -- "${(q+)REPLY}" "${(@q+)found}" 2>/dev/null >> $_zas_file
   [[ -n $lock ]] && zsystem flock -u $lock
   return 0
 }
