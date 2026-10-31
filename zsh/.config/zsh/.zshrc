@@ -74,7 +74,7 @@ WORDCHARS=${WORDCHARS/\/}
 WORDCHARS=${WORDCHARS/_}
 
 # Completion Styles
-zstyle ':completion:*' menu select # Enable menu
+zstyle ':completion:*' menu select yes=long select=long-list # Enable menu; open it straight away if the list doesn't fit
 zstyle ':completion:*' rehash true # Update changes in path automatically
 zstyle ':completion:*' verbose true # Verbose
 zstyle ':completion:*' group-name '' # Separate suggestions into their respective categories
@@ -152,8 +152,17 @@ source "$ZDOTDIR/config.d/highlights.zsh"
 source "$ZDOTDIR/config.d/history.zsh"
 source "$ZDOTDIR/config.d/htb.zsh"
 
-# Give Tab back to zsh completion instead of fzf's
-bindkey '^I' $fzf_default_completion
+# Give Tab back to zsh completion instead of fzf's, with the menu kept to
+# a small box under the prompt (like fish) by shrinking LINES while it runs
+_complete_small() {
+  local -i real=$LINES max=30
+  (( LINES = real < max ? real : max ))
+  zle $fzf_default_completion
+  (( LINES == max )) && LINES=$real   # unless the terminal was resized meanwhile
+  zle reset-prompt                     # redraw at the real size
+}
+zle -N _complete_small
+bindkey '^I' _complete_small
 
 [[ -n "$WT_SESSION" ]] && {
   _wt_prompt() {
