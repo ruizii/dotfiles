@@ -27,9 +27,6 @@ export WEB_EXTENSIONS='/usr/share/seclists/Discovery/Web-Content/web-extensions.
 export PARAMETERS='/usr/share/wordlists/seclists/Discovery/Web-Content/burp-parameter-names.txt'
 export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-
 # Path
 export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.opencode/bin"
 
