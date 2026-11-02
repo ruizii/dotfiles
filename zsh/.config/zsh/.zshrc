@@ -39,7 +39,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(valid_history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-[[ $(</prov/version 2>/dev/null) == *[Mm]icrosoft* ]] && is_wsl=1
+[[ $(</proc/version 2>/dev/null) == *[Mm]icrosoft* ]] && is_wsl=1
 
 (( is_wsl )) && export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
 
