@@ -30,9 +30,6 @@ export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 # Path
 export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.opencode/bin"
 
-# Atuin
-export ATUIN_CONFIG_DIR="$HOME/.dotfiles/atuin"
-
 # Autosuggestions Config
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(valid_history completion)
