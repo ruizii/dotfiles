@@ -30,10 +30,6 @@ export FASTTRACK='/usr/share/wordlists/fasttrack.txt'
 # Path
 export PATH="$HOME/bin:$PNPM_HOME/bin:$HOME/.local/bin:$HOME/.local/share/go/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/share/ctftools/bin:$HOME/.local/share/nvim/mason/bin:$HOME/.opencode/bin"
 
-# FZF Config
-export FZF_DEFAULT_OPTS="--bind tab:down,shift-tab:up --height 40% --color=gutter:-1,prompt:-1,pointer:cyan,bg+:#393f4a --ansi"
-export FZF_CTRL_T_COMMAND=""
-
 # Autosuggestions Config
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(valid_history completion)
@@ -59,7 +55,7 @@ setopt numericglobsort
 setopt interactive_comments
 setopt promptsubst
 
-source <(fzf --zsh)
+eval "$(atuin init zsh --disable-up-arrow)"
 
 zmodload zsh/complist
 
@@ -163,12 +159,11 @@ source "$ZDOTDIR/config.d/highlights.zsh"
 source "$ZDOTDIR/config.d/history.zsh"
 source "$ZDOTDIR/config.d/htb.zsh"
 
-# Give Tab back to zsh completion instead of fzf's, with the menu kept to
-# a small box under the prompt (like fish) by shrinking LINES while it runs
+# Make completion menu smaller
 _complete_small() {
   local -i real=$LINES max=30
   (( LINES = real < max ? real : max ))
-  zle $fzf_default_completion
+  zle expand-or-complete
   (( LINES == max )) && LINES=$real   # unless the terminal was resized meanwhile
   zle reset-prompt                     # redraw at the real size
 }
