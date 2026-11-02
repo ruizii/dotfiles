@@ -19,6 +19,8 @@ Each top-level folder is a Stow package that mirrors the layout of `$HOME`.
 Not stowed:
 
 - `atuin/` – copied into `~/.config/atuin/` (see below).
+- `ffuf/` – copied into `~/.config/ffuf/` (see below); that folder also holds ffuf's
+  run history and autocalibration data, which shouldn't end up in the repo.
 - `windows/` – VS Code and Windows Terminal settings, copied over by hand on the Windows side.
 
 ## Install
@@ -37,6 +39,9 @@ stow -t ~ -D kitty zsh format
 ```bash
 # Copy Atuin config into ~/.config/atuin/
 mkdir -p ~/.config/atuin && cp atuin/config.toml ~/.config/atuin/
+
+# Copy ffuf config into ~/.config/ffuf/
+mkdir -p ~/.config/ffuf && cp ffuf/ffufrc ~/.config/ffuf/
 ```
 
 Add `starship` or `ideavim` to the list if you want them too.
@@ -57,7 +62,7 @@ From the package manager:
 - `zsh`, `zsh-autosuggestions`, `stow`, `kitty`, `atuin`
 - CLI tools the aliases expect: `eza`, `bat`, `fd`, `difftastic`, `curlie`, `hexyl`, `glow`, `ncat`, `xclip` / `wl-clipboard`
 - [CaskaydiaCove Nerd Font Mono](https://www.nerdfonts.com/) for kitty
-- `seclists` for the wordlist variables
+- `seclists` for the wordlist variables, `ffuf`
 
 On Debian/Kali, `fdfind` and `batcat` are wrapped as `fd` and `bat` automatically.
 
@@ -99,6 +104,11 @@ to regenerate).
 - `ctrl+h/j/k/l` move between splits, `alt+h/j/k/l` resize them (`relative_resize.py`)
 - `ctrl+tab` / `ctrl+shift+tab` cycle tabs, `ctrl+shift+t` new tab in the same directory
 - Themes in `themes/`; the active one is `current-theme.conf` (`asdf-kali` by default)
+
+## ffuf
+
+- 60 threads, colours and verbose output on, wordlist comments skipped
+- Browser-like `User-Agent`, `Accept`, `Accept-Language` and `Accept-Encoding` headers on every request
 
 ## Formatting
 
