@@ -1,4 +1,4 @@
-if [[ -r /proc/version ]] && [[ $(</proc/version) == *icrosoft* ]]; then
+if (( is_wsl )); then
     alias copy='/mnt/c/Windows/System32/clip.exe'
 elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
     alias copy='xclip -selection clipboard'
