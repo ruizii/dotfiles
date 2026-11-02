@@ -18,12 +18,10 @@ Each top-level folder is a Stow package that mirrors the layout of `$HOME`.
 
 Not stowed:
 
-- `atuin/` – read in place via `ATUIN_CONFIG_DIR="$HOME/.dotfiles/atuin"`, set in `.zshrc`.
+- `atuin/` – copied into `~/.config/atuin/` (see below).
 - `windows/` – VS Code and Windows Terminal settings, copied over by hand on the Windows side.
 
 ## Install
-
-The repo must be cloned to `~/.dotfiles` (the atuin path above depends on it).
 
 ```bash
 git clone <repo-url> ~/.dotfiles
@@ -34,6 +32,11 @@ stow -t ~ kitty zsh format
 
 # Uninstall
 stow -t ~ -D kitty zsh format
+```
+
+```bash
+# Copy Atuin config into ~/.config/atuin/
+mkdir -p ~/.config/atuin && cp atuin/config.toml ~/.config/atuin/
 ```
 
 Add `starship` or `ideavim` to the list if you want them too.
