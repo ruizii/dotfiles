@@ -30,10 +30,10 @@ git clone <repo-url> ~/.dotfiles
 cd ~/.dotfiles
 
 # Install
-stow kitty zsh format
+stow -t ~ kitty zsh format
 
 # Uninstall
-stow -D kitty zsh format
+stow -t ~ -D kitty zsh format
 ```
 
 Add `starship` or `ideavim` to the list if you want them too.
@@ -46,7 +46,7 @@ Plugins cloned into `~/Code/repos/`:
 mkdir -p ~/Code/repos && cd ~/Code/repos
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git
-git clone https://github.com/zsh-users/zsh-completions.git
+git clone https://github.com/ruizii/zsh-completions.git
 ```
 
 From the package manager:
