@@ -2,8 +2,8 @@
 
 ```bash
 # Install
-stow kitty zsh format atuin
+stow kitty zsh format
 
 # uninstall
-stow -D kitty zsh format atuin
+stow -D kitty zsh format
 ```
