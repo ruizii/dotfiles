@@ -13,8 +13,6 @@ Each top-level folder is a Stow package that mirrors the layout of `$HOME`.
 | `zsh`      | `~/.zshenv`, `~/.config/zsh/`    | Shell config (sets `ZDOTDIR=~/.config/zsh`)                       |
 | `kitty`    | `~/.config/kitty/`               | Terminal config, themes and kittens                               |
 | `format`   | `~/.clang-format`, `~/.shellcheckrc` | Formatter / linter defaults                                   |
-| `starship` | `~/.config/starship.toml`        | Alternative prompt (not installed by default)                     |
-| `ideavim`  | `~/.ideavimrc`                   | Vim bindings for JetBrains IDEs (not installed by default)        |
 
 Not stowed:
 
@@ -43,8 +41,6 @@ mkdir -p ~/.config/atuin && cp atuin/config.toml ~/.config/atuin/
 # Copy ffuf config into ~/.config/ffuf/
 mkdir -p ~/.config/ffuf && cp ffuf/ffufrc ~/.config/ffuf/
 ```
-
-Add `starship` or `ideavim` to the list if you want them too.
 
 ### Dependencies
 
