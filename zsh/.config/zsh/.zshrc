@@ -10,8 +10,8 @@ export EDITOR="$VISUAL"
 export BLOODHOUND_PORT=8888
 export BAT_THEME="ansi"
 
-# History not exported
-HISTFILE="$ZDOTDIR/.zhistory"
+# History not exported. Kept out of $ZDOTDIR, which is a symlink into the dotfiles repo
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=20000
 SAVEHIST=20000
 
@@ -65,7 +65,8 @@ autoload -Uz compinit
 # The full compinit (with its compaudit security check, ~13ms) only runs when a
 # completion folder changed since the dump was built; otherwise the dump is loaded as is
 () {
-  local dump="${ZDOTDIR:-$HOME}/.zcompdump" d changed=0
+  local dump="$XDG_CACHE_HOME/zsh/zcompdump" d changed=0
+  [[ -d ${dump:h} ]] || mkdir -p ${dump:h}
   for d in $fpath; do [[ $d -nt $dump ]] && { changed=1; break }; done
   if [[ -f $dump ]] && (( ! changed )); then
     compinit -C -d $dump 2>/dev/null
