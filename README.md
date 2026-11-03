@@ -86,15 +86,15 @@ All of these folders are already on `PATH` in `.zshrc`.
 | File               | Purpose                                                                 |
 | ------------------ | ----------------------------------------------------------------------- |
 | `aliases.zsh`      | Aliases; `copy` picks the right clipboard tool for WSL, X11 or Wayland  |
-| `arch-debian.zsh`  | Distro-specific plugin paths and `fd` / `bat` wrappers                  |
 | `autosuggest.zsh`  | Fish-style autosuggestions: only suggests history whose commands and path arguments still exist |
 | `highlights.zsh`   | fast-syntax-highlighting colours                                        |
-| `history.zsh`      | `history` shows timestamps                                              |
 | `htb.zsh`          | `settarget` / `cleartarget` for the current box, synced across tabs and shown in the prompt |
-| `man.zsh`          | Coloured man pages                                                      |
 
 Other things worth knowing:
 
+- **Small helpers in `.zshrc`** – plugin paths for Arch and Debian, `fd` / `bat`
+  wrappers where Debian names them `fdfind` / `batcat`, `history` listing every
+  entry with timestamps, and coloured man pages.
 - **Completion** – menu select, fish-style `(description)` formatting, a menu
   capped at 30 lines, and `compinit` only does a full rebuild when a completion
   folder changes. `.zlogin` compiles the dump in the background.
