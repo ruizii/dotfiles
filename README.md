@@ -4,6 +4,9 @@ Personal configs for a Linux (Kali / Debian / Arch) and WSL setup centred on
 **zsh**, the **kitty** terminal and a pentesting / CTF workflow. Managed with
 [GNU Stow](https://www.gnu.org/software/stow/).
 
+These dotfiles are very opinionated. The install steps don't cover 
+all required dependencies. Expect to adapt them to your own machine and use case.
+
 ## Layout
 
 Each top-level folder is a Stow package that mirrors the layout of `$HOME`.
