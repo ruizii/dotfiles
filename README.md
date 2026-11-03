@@ -13,34 +13,32 @@ Each top-level folder is a Stow package that mirrors the layout of `$HOME`.
 | `zsh`      | `~/.zshenv`, `~/.config/zsh/`    | Shell config (sets `ZDOTDIR=~/.config/zsh`)                       |
 | `kitty`    | `~/.config/kitty/`               | Terminal config, themes and kittens                               |
 | `format`   | `~/.clang-format`, `~/.shellcheckrc` | Formatter / linter defaults                                   |
+| `atuin`    | `~/.config/atuin/config.toml`    | Shell history search                                              |
+| `ffuf`     | `~/.config/ffuf/ffufrc`          | ffuf defaults                                                     |
 
-Not stowed:
-
-- `atuin/` – copied into `~/.config/atuin/` (see below).
-- `ffuf/` – copied into `~/.config/ffuf/` (see below); that folder also holds ffuf's
-  run history and autocalibration data, which shouldn't end up in the repo.
-- `windows/` – VS Code and Windows Terminal settings, copied over by hand on the Windows side.
+`windows/` isn't stowed: VS Code and Windows Terminal settings, copied over by hand
+on the Windows side.
 
 ## Install
 
 ```bash
-git clone <repo-url> ~/.dotfiles
+git clone https://github.com/ruizii/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Install
-stow -t ~ kitty zsh format
+mkdir -p ~/.config/atuin ~/.config/ffuf
+rm -f ~/.config/atuin/config.toml ~/.config/ffuf/ffufrc
+stow -t ~ kitty zsh format atuin ffuf
 
 # Uninstall
-stow -t ~ -D kitty zsh format
+stow -t ~ -D kitty zsh format atuin ffuf
 ```
 
-```bash
-# Copy Atuin config into ~/.config/atuin/
-mkdir -p ~/.config/atuin && cp atuin/config.toml ~/.config/atuin/
-
-# Copy ffuf config into ~/.config/ffuf/
-mkdir -p ~/.config/ffuf && cp ffuf/ffufrc ~/.config/ffuf/
-```
+The `mkdir` matters: when those folders already exist, Stow links only the file inside
+instead of linking the whole folder, so ffuf's run history and autocalibration data
+stay out of the repo. The `rm` clears the default `config.toml` atuin writes whenever
+it runs without one; run it from bash, since zsh's atuin hooks can recreate the file
+before `stow` gets to it.
 
 ### Dependencies
 
