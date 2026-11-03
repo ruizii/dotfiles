@@ -28,14 +28,10 @@ on the Windows side.
 git clone https://github.com/ruizii/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# Install
 mkdir -p ~/.config/atuin ~/.config/ffuf
 
 # Backup before running this line
 rm -f ~/.config/atuin/config.toml ~/.config/ffuf/ffufrc && stow -t ~ kitty zsh format atuin ffuf
-
-# Uninstall
-stow -t ~ -D kitty zsh format atuin ffuf
 ```
 
 The `mkdir` matters: when those folders already exist, Stow links only the file inside
@@ -43,6 +39,12 @@ instead of linking the whole folder, so ffuf's run history and autocalibration d
 stay out of the repo. The `rm` clears the default `config.toml` atuin writes whenever
 it runs without one; run it from bash, since zsh's atuin hooks can recreate the file
 before `stow` gets to it.
+
+## Uninstall
+
+```bash
+stow -t ~ -D kitty zsh format atuin ffuf
+```
 
 ### Dependencies
 
