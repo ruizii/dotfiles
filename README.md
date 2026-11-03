@@ -55,11 +55,28 @@ git clone https://github.com/ruizii/zsh-completions.git
 From the package manager:
 
 - `zsh`, `zsh-autosuggestions`, `stow`, `kitty`, `atuin`
-- CLI tools the aliases expect: `eza`, `bat`, `fd`, `difftastic`, `curlie`, `hexyl`, `glow`, `ncat`, `xclip` / `wl-clipboard`
+- CLI tools the aliases expect: `eza`, `bat`, `fd`, `ncat`, `xclip` / `wl-clipboard`
 - [CaskaydiaCove Nerd Font Mono](https://www.nerdfonts.com/) for kitty
 - `seclists` for the wordlist variables, `ffuf`
 
 On Debian/Kali, `fdfind` and `batcat` are wrapped as `fd` and `bat` automatically.
+
+Installed separately:
+
+```bash
+# glow and curlie (my fork); .zshrc expects Go binaries in ~/.local/share/go/bin,
+# so set GOPATH (or GOBIN) to match first
+go install charm.land/glow/v3@latest
+go install github.com/ruizii/curlie@latest
+
+# hexyl, into ~/.cargo/bin
+cargo install hexyl
+```
+
+- `difftastic` – download the binary from the
+  [releases page](https://github.com/Wilfred/difftastic/releases) and put `difft` somewhere in path.
+
+All of these folders are already on `PATH` in `.zshrc`.
 
 ## zsh
 
