@@ -152,20 +152,43 @@ bindkey "^[[Z" reverse-menu-complete
 # 20ms
 KEYTIMEOUT=2
 
-source "$ZDOTDIR/config.d/man.zsh"
+source "$HOME/Code/repos/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
 source "$ZDOTDIR/config.d/aliases.zsh"
 source "$ZDOTDIR/config.d/autosuggest.zsh"
-source "$ZDOTDIR/config.d/arch-debian.zsh"
 source "$ZDOTDIR/config.d/highlights.zsh"
-source "$ZDOTDIR/config.d/history.zsh"
 source "$ZDOTDIR/config.d/htb.zsh"
+
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh   # Arch
+[[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh                           # Debian
+
+# Wrapper functions to make bat and fd available on Distros with batcat and fdfind instead of bat and fd
+(( $+commands[batcat] && ! $+commands[bat] )) && bat() { batcat "$@" }
+(( $+commands[fdfind] && ! $+commands[fd] )) && fd() { fdfind "$@" }
+
+# History lists all entries with timestamps
+history() { builtin history -i "${@:-0}" }
+
+# Colorful man pages
+man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;36m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    GROFF_NO_SGR=1 \
+    man "$@"
+}
 
 # Make completion menu smaller
 _complete_small() {
   local -i real=$LINES max=30
   (( LINES = real < max ? real : max ))
   zle expand-or-complete
-  (( LINES == max )) && LINES=$real   # unless the terminal was resized meanwhile
+  (( LINES == max )) && LINES=$real    # unless the terminal was resized meanwhile
   zle reset-prompt                     # redraw at the real size
 }
 zle -N _complete_small
