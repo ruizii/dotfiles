@@ -27,8 +27,9 @@ cd ~/.dotfiles
 
 # Install
 mkdir -p ~/.config/atuin ~/.config/ffuf
-rm -f ~/.config/atuin/config.toml ~/.config/ffuf/ffufrc
-stow -t ~ kitty zsh format atuin ffuf
+
+# Backup before running this line
+rm -f ~/.config/atuin/config.toml ~/.config/ffuf/ffufrc && stow -t ~ kitty zsh format atuin ffuf
 
 # Uninstall
 stow -t ~ -D kitty zsh format atuin ffuf
