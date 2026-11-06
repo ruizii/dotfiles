@@ -101,7 +101,7 @@ zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
 
 # Fish-style descriptions: "--all  (do not ignore)" instead of "--all  -- do not ignore".
 # Rewrites the display array that _describe (-d name) and _git (-ld name) pass to compadd,
-# and colours the text yellow only in the groups it rewrote (not e.g. "(sd-pam)" in kill).
+# and colours the text only in the groups it rewrote (not e.g. "(sd-pam)" in kill).
 compadd() {
   setopt LOCAL_OPTIONS EXTENDED_GLOB
   local -i _fd_i _fd_j _fd_changed; local _fd_arr _fd_grp _fd_next; local -a _fd_d
@@ -128,7 +128,7 @@ compadd() {
     if (( _fd_changed )); then
       set -A $_fd_arr "${_fd_d[@]}"
       [[ -n $_fd_grp ]] && (( $+_comp_colors )) &&
-        _comp_colors+=("($_fd_grp)=(#b)(|[^\(]# )(\()(*)(\))( #)=0=0=0=3;33=0=0")   # 3;33 = italic yellow
+        _comp_colors+=("($_fd_grp)=(#b)(|[^\(]# )(\()(*)(\))( #)=0=0=0=3;33=0=0")
     fi
   fi
   builtin compadd "$@"
@@ -141,7 +141,7 @@ zstyle ':completion:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;3
 zstyle ':completion:*:processes' command "ps -u $USER -o pid,user,args -w -w"
 
 bindkey -e
-# Esc only hides a completion list left on screen (like fish), otherwise does nothing
+# Esc only hides a completion list left on screen, otherwise does nothing
 _esc_hide_list() { zle -R -c }
 zle -N _esc_hide_list
 bindkey '^[' _esc_hide_list
